@@ -189,6 +189,14 @@
       box-shadow:0 0 0 2px rgba(34,197,94,.20), 0 0 26px rgba(34,197,94,.20);
     }
 
+    .flavorThumb{
+      cursor:default;
+    }
+    .flavorThumb.uploadEmpty{
+      background:#f9fafb;
+      border-style:dashed;
+    }
+
 </style>
 </head>
 <body>
@@ -261,14 +269,14 @@
             
       <div style="margin-top:10px">
         <label>Sabores</label>
-
+        
         <div class="row" style="margin-top:8px">
           <label class="pill">
-            <input id="multiMode" type="checkbox" />
+            <input id="multiMode" type="checkbox" checked />
             Múltiplos pedidos
           </label>
         </div>
-        <div class="hint" id="modeHint">Desmarcado: 1 sabor. Marcado: escolha a quantidade por sabor.</div>
+        <div class="hint" id="modeHint">Modo múltiplo ativado: escolha a quantidade por sabor.</div>
 
         <!-- MODO 1 SABOR -->
         <div id="singleBox" style="margin-top:10px">
@@ -497,10 +505,52 @@
     }
 
     // ===== Imagens =====
+    const PLACEHOLDER_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+        <rect x="3" y="3" width="114" height="114" rx="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="4" stroke-dasharray="8 6"/>
+        <path d="M33 77l15-18 12 14 10-12 18 22H33z" fill="#cbd5e1"/>
+        <circle cx="48" cy="43" r="8" fill="#cbd5e1"/>
+        <text x="60" y="104" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#6b7280">FOTO</text>
+      </svg>
+    `)}`;
+
+    function safeKey(flavor){
+      return `sil_gourmet_img_${flavor}`;
+    }
+
+    function getSavedThumb(flavor){
+      try{
+        return localStorage.getItem(safeKey(flavor));
+      }catch(e){
+        return null;
+      }
+    }
+
+    function applyThumb(flavor, src){
+      document.querySelectorAll(`[data-thumb="${flavor}"]`).forEach(img=>{
+        img.src = src || PLACEHOLDER_SVG;
+        img.classList.toggle("uploadEmpty", !src || src === PLACEHOLDER_SVG);
+        img.title = `${flavor}`;
+      });
+    }
+
     function setThumbs(){
-      document.querySelectorAll('[data-thumb]').forEach(img=>{
-        const f = img.getAttribute('data-thumb');
-        if(flavorMeta[f]) img.src = flavorMeta[f].img;
+      flavors.forEach((flavor)=>{
+        const saved = getSavedThumb(flavor);
+        if(saved){
+          applyThumb(flavor, saved);
+          return;
+        }
+
+        const fallback = flavorMeta[flavor] ? flavorMeta[flavor].img : "";
+        if(fallback){
+          const tester = new Image();
+          tester.onload = ()=> applyThumb(flavor, fallback);
+          tester.onerror = ()=> applyThumb(flavor, PLACEHOLDER_SVG);
+          tester.src = fallback;
+        }else{
+          applyThumb(flavor, PLACEHOLDER_SVG);
+        }
       });
     }
 
@@ -573,7 +623,7 @@
       $("multiMode").addEventListener("change", ()=>{
         setMultiMode($("multiMode").checked);
       });
-      setMultiMode(false);
+      setMultiMode(true);
     }
 
     // ===== WhatsApp =====
