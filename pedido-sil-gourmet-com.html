@@ -276,7 +276,7 @@
             Múltiplos pedidos
           </label>
         </div>
-        <div class="hint" id="modeHint">Modo múltiplo ativado: escolha a quantidade por sabor.</div>
+        <div class="hint" id="modeHint">Desmarcado: 1 sabor. Marcado: escolha a quantidade por sabor.</div>
 
         <!-- MODO 1 SABOR -->
         <div id="singleBox" style="margin-top:10px">
@@ -401,15 +401,6 @@
 
 
       <div style="margin-top:12px">
-        <label>Açúcar</label>
-        <div class="row">
-          <label class="pill"><input type="radio" name="acucar" value="Com açúcar" checked /> Com açúcar</label>
-          <label class="pill"><input type="radio" name="acucar" value="Zero açúcar" /> Zero açúcar</label>
-        </div>
-        <div class="hint">Selecione a opção desejada.</div>
-      </div>
-
-      <div style="margin-top:12px">
         <label>Observações (opcional)</label>
         <textarea id="obs" placeholder="Ex.: sem entrega, retirar às 18h / portaria / referência"></textarea>
       </div>
@@ -492,11 +483,6 @@
       return "Sem chia";
     }
 
-    function getAcucar(){
-      const radios = document.querySelectorAll('input[name="acucar"]');
-      for(const r of radios){ if(r.checked) return r.value; }
-      return "Com açúcar";
-    }
 
     function updateDeliveryUI(){
       const modo = getModo();
@@ -635,7 +621,6 @@
       const datahora = $("datahora").value.trim();
       const colher = $("colher").checked ? "Sim" : "Não";
       const chia = getChia();
-      const acucar = getAcucar();
       const obs = $("obs").value.trim();
 
       if(!nome) throw new Error("Informe o nome.");
@@ -674,7 +659,6 @@
         datahora ? `Data/Hora: ${datahora}` : null,
         `Colherzinha: ${colher}`,
         `Chia: ${chia}`,
-        `Açúcar: ${acucar}`,
         obs ? `Observações: ${obs}` : null
       ].filter(Boolean);
 
