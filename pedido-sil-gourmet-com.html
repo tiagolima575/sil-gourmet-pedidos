@@ -391,6 +391,16 @@
         <div class="hint">Selecione a opção desejada.</div>
       </div>
 
+
+      <div style="margin-top:12px">
+        <label>Açúcar</label>
+        <div class="row">
+          <label class="pill"><input type="radio" name="acucar" value="Com açúcar" checked /> Com açúcar</label>
+          <label class="pill"><input type="radio" name="acucar" value="Zero açúcar" /> Zero açúcar</label>
+        </div>
+        <div class="hint">Selecione a opção desejada.</div>
+      </div>
+
       <div style="margin-top:12px">
         <label>Observações (opcional)</label>
         <textarea id="obs" placeholder="Ex.: sem entrega, retirar às 18h / portaria / referência"></textarea>
@@ -472,6 +482,12 @@
       const radios = document.querySelectorAll('input[name="chia"]');
       for(const r of radios){ if(r.checked) return r.value; }
       return "Sem chia";
+    }
+
+    function getAcucar(){
+      const radios = document.querySelectorAll('input[name="acucar"]');
+      for(const r of radios){ if(r.checked) return r.value; }
+      return "Com açúcar";
     }
 
     function updateDeliveryUI(){
@@ -569,6 +585,7 @@
       const datahora = $("datahora").value.trim();
       const colher = $("colher").checked ? "Sim" : "Não";
       const chia = getChia();
+      const acucar = getAcucar();
       const obs = $("obs").value.trim();
 
       if(!nome) throw new Error("Informe o nome.");
@@ -607,6 +624,7 @@
         datahora ? `Data/Hora: ${datahora}` : null,
         `Colherzinha: ${colher}`,
         `Chia: ${chia}`,
+        `Açúcar: ${acucar}`,
         obs ? `Observações: ${obs}` : null
       ].filter(Boolean);
 
