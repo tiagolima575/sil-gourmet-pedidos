@@ -106,6 +106,18 @@
     }
     .flavorName{font-weight:800; color:var(--txt); font-size:14px; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
     .flavorNote{margin:2px 0 0; font-size:12px; color:var(--muted);}
+    .flavorTextEdit{min-width:0;display:flex;flex-direction:column;gap:4px;}
+    .flavorEditInput,.flavorEditDesc{
+      width:100%;border:1px solid transparent;background:transparent;padding:0;
+      border-radius:8px;outline:none;color:var(--txt);
+    }
+    .flavorEditInput{font-weight:800;font-size:14px;}
+    .flavorEditDesc{font-size:12px;color:var(--muted);}
+    .flavorEditInput:focus,.flavorEditDesc:focus{
+      background:#ffffff;border-color:rgba(255,77,109,.45);padding:4px 6px;
+      box-shadow:0 0 0 2px rgba(255,77,109,.12);
+    }
+    .modeLock{font-size:12px;color:var(--muted);margin-top:6px;}
     .flavorRadio{
       width:18px;height:18px;border-radius:999px;
       border:1px solid var(--line);
@@ -269,17 +281,11 @@
             
       <div style="margin-top:10px">
         <label>Sabores</label>
-        
-        <div class="row" style="margin-top:8px">
-          <label class="pill">
-            <input id="multiMode" type="checkbox" checked />
-            Múltiplos pedidos
-          </label>
-        </div>
-        <div class="hint" id="modeHint">Desmarcado: 1 sabor. Marcado: escolha a quantidade por sabor.</div>
+
+        <input id="multiMode" type="checkbox" checked hidden />
 
         <!-- MODO 1 SABOR -->
-        <div id="singleBox" style="margin-top:10px">
+        <div id="singleBox" style="display:none;margin-top:10px">
           <label>Escolha 1 sabor</label>
 
           <div class="flavorsGrid" id="singleGrid" style="margin-top:10px">
@@ -318,17 +324,17 @@
 
             <div class="flavorCard" data-sflavor="Abacaxi Dourado">
               <div class="flavorLeft">
-                <img class="flavorThumb" data-thumb="Abacaxi Dourado" alt="Abacaxi Dourado" />
+                <img class="flavorThumb" data-thumb="Abacaxi Dourado" alt="Amora" />
                 <div>
-                  <p class="flavorName">Abacaxi Dourado</p>
-                  <p class="flavorNote">geleia de abacaxi</p>
+                  <p class="flavorName">Amora</p>
+                  <p class="flavorNote">geleia de amora</p>
                 </div>
               </div>
               <div class="flavorRadio"></div>
             </div>
           </div>
 
-          <div class="hint" style="margin-top:8px">Depois, informe a <b>quantidade total</b> no campo “Quantidade total (potinhos)”.</div>
+
         </div>
 
         <!-- MODO MÚLTIPLOS -->
@@ -340,9 +346,9 @@
             <div class="flavorCard" data-mflavor="Morango Clássico">
               <div class="flavorLeft">
                 <img class="flavorThumb" data-thumb="Morango Clássico" alt="Morango Clássico" />
-                <div>
-                  <p class="flavorName">Morango Clássico</p>
-                  <p class="flavorNote">geleia de morango</p>
+                <div class="flavorTextEdit">
+                  <input class="flavorEditInput" data-edit-name="Morango Clássico" value="Morango Clássico" />
+                  <input class="flavorEditDesc" data-edit-desc="Morango Clássico" value="geleia de morango" />
                 </div>
               </div>
               <input id="qty_morango" class="qtySquare" type="number" min="0" step="1" value="0" inputmode="numeric" />
@@ -351,9 +357,9 @@
             <div class="flavorCard" data-mflavor="Maracujá Tropical">
               <div class="flavorLeft">
                 <img class="flavorThumb" data-thumb="Maracujá Tropical" alt="Maracujá Tropical" />
-                <div>
-                  <p class="flavorName">Maracujá Tropical</p>
-                  <p class="flavorNote">geleia de maracujá</p>
+                <div class="flavorTextEdit">
+                  <input class="flavorEditInput" data-edit-name="Maracujá Tropical" value="Maracujá Tropical" />
+                  <input class="flavorEditDesc" data-edit-desc="Maracujá Tropical" value="geleia de maracujá" />
                 </div>
               </div>
               <input id="qty_maracuja" class="qtySquare" type="number" min="0" step="1" value="0" inputmode="numeric" />
@@ -362,9 +368,9 @@
             <div class="flavorCard" data-mflavor="Uva Intensa">
               <div class="flavorLeft">
                 <img class="flavorThumb" data-thumb="Uva Intensa" alt="Uva Intensa" />
-                <div>
-                  <p class="flavorName">Uva Intensa</p>
-                  <p class="flavorNote">geleia de uva</p>
+                <div class="flavorTextEdit">
+                  <input class="flavorEditInput" data-edit-name="Uva Intensa" value="Uva Intensa" />
+                  <input class="flavorEditDesc" data-edit-desc="Uva Intensa" value="geleia de uva" />
                 </div>
               </div>
               <input id="qty_uva" class="qtySquare" type="number" min="0" step="1" value="0" inputmode="numeric" />
@@ -372,10 +378,10 @@
 
             <div class="flavorCard" data-mflavor="Abacaxi Dourado">
               <div class="flavorLeft">
-                <img class="flavorThumb" data-thumb="Abacaxi Dourado" alt="Abacaxi Dourado" />
-                <div>
-                  <p class="flavorName">Abacaxi Dourado</p>
-                  <p class="flavorNote">geleia de abacaxi</p>
+                <img class="flavorThumb" data-thumb="Abacaxi Dourado" alt="Amora" />
+                <div class="flavorTextEdit">
+                  <input class="flavorEditInput" data-edit-name="Abacaxi Dourado" value="Amora" />
+                  <input class="flavorEditDesc" data-edit-desc="Abacaxi Dourado" value="geleia de amora" />
                 </div>
               </div>
               <input id="qty_abacaxi" class="qtySquare" type="number" min="0" step="1" value="0" inputmode="numeric" />
@@ -426,7 +432,7 @@
   "Morango Clássico": { img: "sabor-morango.jpg", desc: "geleia de morango" },
   "Maracujá Tropical": { img: "sabor-maracuja.jpg", desc: "geleia de maracujá" },
   "Uva Intensa": { img: "sabor-uva.jpg", desc: "geleia de uva" },
-  "Abacaxi Dourado": { img: "sabor-abacaxi.jpg", desc: "geleia de abacaxi" }
+  "Abacaxi Dourado": { img: "sabor-amora.jpg", desc: "geleia de amora", customName: "Amora" }
 };
 
     
@@ -435,7 +441,7 @@
       "Morango Clássico": "🍓",
       "Maracujá Tropical": "🥭",
       "Uva Intensa": "🍇",
-      "Abacaxi Dourado": "🍍"
+      "Abacaxi Dourado": "🫐"
     };
 
     const flavors = ["Morango Clássico","Maracujá Tropical","Uva Intensa","Abacaxi Dourado"];
@@ -446,6 +452,60 @@
       "Uva Intensa": "qty_uva",
       "Abacaxi Dourado": "qty_abacaxi"
     };
+
+    const flavorStorageKey = "sil_gourmet_flavor_edits_v2";
+
+    function defaultFlavorState(){
+      return {
+        "Morango Clássico": { name: "Morango Clássico", desc: "geleia de morango" },
+        "Maracujá Tropical": { name: "Maracujá Tropical", desc: "geleia de maracujá" },
+        "Uva Intensa": { name: "Uva Intensa", desc: "geleia de uva" },
+        "Abacaxi Dourado": { name: "Amora", desc: "geleia de amora" }
+      };
+    }
+
+    let flavorState = defaultFlavorState();
+
+    function saveFlavorState(){
+      // travado: sem salvar edição de nomes/descrições
+    }
+
+    function getFlavorDisplayName(flavor){
+      return (flavorState[flavor] && flavorState[flavor].name) ? flavorState[flavor].name.trim() : flavor;
+    }
+
+    function getFlavorDisplayDesc(flavor){
+      if(flavorState[flavor] && flavorState[flavor].desc) return flavorState[flavor].desc.trim();
+      if(flavorMeta[flavor] && flavorMeta[flavor].desc) return flavorMeta[flavor].desc;
+      return "";
+    }
+
+    function applyFlavorEdits(){
+      for(const flavor of flavors){
+        const name = getFlavorDisplayName(flavor) || flavor;
+        const desc = getFlavorDisplayDesc(flavor);
+
+        document.querySelectorAll(`[data-edit-name="${flavor}"]`).forEach(el=>{ el.value = name; });
+        document.querySelectorAll(`[data-edit-desc="${flavor}"]`).forEach(el=>{ el.value = desc; });
+
+        document.querySelectorAll(`#singleGrid .flavorCard[data-sflavor="${flavor}"] .flavorName`).forEach(el=>{ el.textContent = name; });
+        document.querySelectorAll(`#singleGrid .flavorCard[data-sflavor="${flavor}"] .flavorNote`).forEach(el=>{ el.textContent = desc; });
+        document.querySelectorAll(`[data-thumb="${flavor}"]`).forEach(img=>{
+          img.alt = name;
+          img.title = name;
+        });
+      }
+    }
+
+    function setupFlavorEditors(){
+      document.querySelectorAll('[data-edit-name], [data-edit-desc]').forEach(input=>{
+        input.setAttribute('readonly','readonly');
+        input.setAttribute('tabindex','-1');
+        input.style.cursor = 'default';
+      });
+
+      applyFlavorEdits();
+    }
 
     function asInt(v){
       const n = parseInt(v, 10);
@@ -505,29 +565,50 @@
     }
 
     function getSavedThumb(flavor){
-      try{
-        return localStorage.getItem(safeKey(flavor));
-      }catch(e){
-        return null;
-      }
+      return null;
+    }
+
+    function saveThumb(flavor, dataUrl){
+      // travado: sem salvar troca de foto
     }
 
     function applyThumb(flavor, src){
       document.querySelectorAll(`[data-thumb="${flavor}"]`).forEach(img=>{
         img.src = src || PLACEHOLDER_SVG;
         img.classList.toggle("uploadEmpty", !src || src === PLACEHOLDER_SVG);
-        img.title = `${flavor}`;
+        img.title = getFlavorDisplayName(flavor);
       });
     }
 
+    function wireThumbInput(flavor){
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
+      input.setAttribute("data-file-flavor", flavor);
+      input.style.display = "none";
+
+      input.addEventListener("change", (ev)=>{
+        const file = ev.target.files && ev.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = ()=>{
+          const dataUrl = String(reader.result || "");
+          if(!dataUrl) return;
+          saveThumb(flavor, dataUrl);
+          applyThumb(flavor, dataUrl);
+        };
+        reader.readAsDataURL(file);
+        ev.target.value = "";
+      });
+
+      document.body.appendChild(input);
+      return input;
+    }
+
+    const thumbInputs = {};
+
     function setThumbs(){
       flavors.forEach((flavor)=>{
-        const saved = getSavedThumb(flavor);
-        if(saved){
-          applyThumb(flavor, saved);
-          return;
-        }
-
         const fallback = flavorMeta[flavor] ? flavorMeta[flavor].img : "";
         if(fallback){
           const tester = new Image();
@@ -606,9 +687,6 @@
         const id = qtyIds[f];
         $(id).addEventListener("input", updateMultiUI);
       }
-      $("multiMode").addEventListener("change", ()=>{
-        setMultiMode($("multiMode").checked);
-      });
       setMultiMode(true);
     }
 
@@ -638,13 +716,13 @@
         const parts = [];
         for(const f of flavors){
           const v = asInt($(qtyIds[f]).value);
-          if(v > 0) parts.push(`${f} ${flavorEmoji[f]} x${v}`);
+          if(v > 0) parts.push(`${getFlavorDisplayName(f)} ${flavorEmoji[f] || ""} x${v}`.trim());
         }
         saboresTxt = parts.join(" | ");
       }else{
         qtd = asInt($("qtd").value);
         if(qtd <= 0) throw new Error("Informe a quantidade total (potinhos).");
-        saboresTxt = `${selectedFlavor} ${flavorEmoji[selectedFlavor]}`;
+        saboresTxt = `${getFlavorDisplayName(selectedFlavor)} ${flavorEmoji[selectedFlavor] || ""}`.trim();
       }
 
       const lines = [
@@ -677,12 +755,19 @@
     }
 
     document.addEventListener("DOMContentLoaded", ()=>{
+      try{
+        localStorage.removeItem(flavorStorageKey);
+        flavors.forEach((flavor)=> localStorage.removeItem(safeKey(flavor)));
+      }catch(e){}
+      flavorState = defaultFlavorState();
+      setupFlavorEditors();
       setThumbs();
       setupSingleSelect();
       setupMultiMode();
       document.querySelectorAll('input[name="modo"]').forEach(r=>{
         r.addEventListener("change", updateDeliveryUI);
       });
+      $("multiMode").checked = true;
       updateDeliveryUI();
       $("btn").addEventListener("click", (ev)=>{ ev.preventDefault(); sendWhatsApp(); });
     });
