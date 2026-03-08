@@ -963,17 +963,17 @@ input[readonly]{background:rgba(245,236,220,.85)}
         const parts = [];
         for(const f of flavors){
           const v = asInt($(qtyIds[f]).value);
-          if(v > 0) parts.push(`${getFlavorDisplayName(f)} ${flavorEmoji[f] || ""} x${v}`.trim());
+          if(v > 0) parts.push(`${getFlavorDisplayName(f)} x${v}`.trim());
         }
         saboresTxt = parts.join(" | ");
       }else{
         qtd = asInt($("qtd").value);
         if(qtd <= 0) throw new Error("Informe a quantidade total (potinhos).");
-        saboresTxt = `${getFlavorDisplayName(selectedFlavor)} ${flavorEmoji[selectedFlavor] || ""}`.trim();
+        saboresTxt = `${getFlavorDisplayName(selectedFlavor)}`.trim();
       }
 
       const lines = [
-        "🍓 Pedido — SIL GOURMET (250 g)",
+        "Pedido — SIL GOURMET (250 g)",
         `Nome: ${nome}`,
         tel ? `WhatsApp: ${tel}` : null,
         `Quantidade total: ${qtd}`,
@@ -989,7 +989,7 @@ input[readonly]{background:rgba(245,236,220,.85)}
         obs ? `Observações: ${obs}` : null,
         "",
         "💳 Pagamento via PIX",
-        "Chave PIX: 69992913628",
+        "Chave PIX: 9c4851df-20c3-40db-8cca-fdd74a492736",
         "Recebedor: Tiago Lima de Jesus",
         "Envie o comprovante no WhatsApp após o pagamento."
       ].filter(Boolean);
