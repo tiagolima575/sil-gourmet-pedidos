@@ -368,8 +368,7 @@
         <div id="multiBox" style="display:none;margin-top:10px">
           <label>Quantidades por sabor</label>
           <div class="hint">Coloque a quantidade em cada quadradinho (0 = não quero). O total é calculado automaticamente.</div>
-          <div class="zoomHint">Quando você colocar um número, a foto do sabor abre maior automaticamente.</div>
-
+          
           <div class="flavorsGrid" id="multiGrid" style="margin-top:10px">
             <div class="flavorCard" data-mflavor="Morango Clássico">
               <div class="flavorLeft">
@@ -754,13 +753,9 @@
       for(const f of flavors){
         const id = qtyIds[f];
         $(id).addEventListener("input", (ev)=>{
-          const prev = asInt(ev.target.getAttribute('data-prev') || '0');
           updateMultiUI();
           const curr = asInt(ev.target.value);
           ev.target.setAttribute('data-prev', String(curr));
-          if(prev === 0 && curr > 0){
-            openImageModal(f);
-          }
         });
       }
       setMultiMode(true);
