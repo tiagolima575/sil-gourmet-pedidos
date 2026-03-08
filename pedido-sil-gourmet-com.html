@@ -301,6 +301,13 @@ input[readonly]{background:rgba(245,236,220,.85)}
       <div class="mini">Pix / Dinheiro</div>
     </div>
 
+    <div class="headerTools" style="display:none">
+      <label class="uploadBtn" for="headerBgInput">Inserir imagem no topo</label>
+      <button type="button" class="ghostBtn" id="clearHeaderBg">Remover imagem</button>
+      <button type="button" class="ghostBtn" id="saveHtmlWithPhoto">Salvar arquivo com foto</button>
+      <input id="headerBgInput" type="file" accept="image/*" hidden />
+    </div>
+
     <div class="card">
       <div class="grid two">
         <div>
@@ -704,13 +711,41 @@ input[readonly]{background:rgba(245,236,220,.85)}
       }
     }
 
+    function saveHtmlWithPhoto(){
+      const dataUrl = loadHeaderBg();
+      if(!dataUrl){
+        showError("Primeiro escolha uma imagem no topo.");
+        return;
+      }
+
+      try{
+        const fullHtml = document.documentElement.outerHTML;
+        const currentLiteral = "__" + "HEADER_BG_DATA_URL" + "__";
+        const updatedHtml = fullHtml.replace(currentLiteral, dataUrl.replace(/\$/g, "$$$$"));
+        const blob = new Blob([updatedHtml], { type: "text/html;charset=utf-8" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "pedido-sil-gourmet-com-foto-gravada.html";
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(()=>{
+          URL.revokeObjectURL(a.href);
+          a.remove();
+        }, 1200);
+        showOk("Arquivo gerado com a foto gravada. Abra esse novo HTML para a imagem continuar lá.");
+      }catch(_err){
+        showError("Não consegui gerar o arquivo com a foto gravada.");
+      }
+    }
+
     function setupHeaderBgUpload(){
       const input = $("headerBgInput");
       const clearBtn = $("clearHeaderBg");
-      if(!input || !clearBtn) return;
 
       const saved = loadHeaderBg();
       if(saved) applyHeaderBg(saved);
+
+      if(!input || !clearBtn) return;
 
       input.addEventListener("change", ()=>{
         const file = input.files && input.files[0];
@@ -985,6 +1020,8 @@ input[readonly]{background:rgba(245,236,220,.85)}
       $("multiMode").checked = true;
       updateDeliveryUI();
       $("btn").addEventListener("click", (ev)=>{ ev.preventDefault(); sendWhatsApp(); });
+      const saveBtn = $("saveHtmlWithPhoto");
+      if(saveBtn) saveBtn.addEventListener("click", saveHtmlWithPhoto);
       $("imgModalClose").addEventListener("click", closeImageModal);
       $("imgModal").addEventListener("click", (ev)=>{ if(ev.target.id === 'imgModal') closeImageModal(); });
       document.addEventListener("keydown", (ev)=>{ if(ev.key === 'Escape') closeImageModal(); });
