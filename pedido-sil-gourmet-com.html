@@ -514,13 +514,12 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
 <div class="sectionTitle">IOGURTE NATURAL</div><label>Como você prefere receber o iogurte?</label>
 <div class="grid" style="gap:10px">
 <label class="pill optionBlock"><input name="adocamento" type="radio" value="Natural (sem açúcar)"/> Natural (sem açúcar)</label>
-<label class="pill optionBlock"><input name="adocamento" type="radio" value="Natural + sachê de açúcar"/> Natural + sachê de açúcar</label>
 <label class="pill optionBlock steviaBlock">
-<span><input name="adocamento" type="radio" value="Natural + sachê de stévia"/> Natural + sachê de stévia</span>
+<span><input name="adocamento" type="radio" value="Natural com stévia"/> Natural com stévia</span>
 <small>Stévia é um adoçante sem açúcar.</small>
 </label>
 </div>
-<div class="hint">Nas opções com açúcar ou com stévia, o iogurte vai natural e o sachê é enviado separadamente para adoçar ao seu gosto.</div>
+<div class="hint">Na opção com stévia, o iogurte vai natural e a stévia é enviada separadamente para adoçar ao seu gosto.</div>
 </div>
 <div style="margin-top:12px">
 <label class="fieldLabel">Observações (opcional)</label>
@@ -1158,7 +1157,7 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
         `Colherzinha: ${colher}`,
         `Chia: ${chia}`,
         `Iogurte: ${adocamento}`,
-        ((adocamento === "Natural + sachê de açúcar") || (adocamento === "Natural + sachê de stévia")) ? "Obs. adoçamento: sachê enviado separadamente; o iogurte vai natural." : null,
+        (adocamento === "Natural com stévia") ? "Obs. adoçamento: stévia enviada separadamente; o iogurte vai natural." : null,
         obs ? `Observações: ${obs}` : null,
         "💳 Pagamento via PIX",
         "Chave PIX: 69 99926-5256",
