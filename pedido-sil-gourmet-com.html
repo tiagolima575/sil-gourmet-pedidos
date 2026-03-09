@@ -161,20 +161,22 @@ body{
   width:14px;
   height:14px;
   padding:0;
-  border:none;
+  border:1px solid rgba(107,82,58,.08);
   border-radius:4px;
-  background:rgba(255,255,255,.72);
-  box-shadow:0 1px 4px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.75);
-  opacity:.22;
+  background:rgba(107,82,58,.08);
+  box-shadow:none;
+  opacity:.12;
   cursor:pointer;
 }
 .adminRevealDot:hover,
 .adminRevealDot:focus{
-  opacity:.5;
+  opacity:.18;
   outline:none;
 }
 .adminRevealDot.active{
-  opacity:.85;
+  background:rgba(95,113,65,.28);
+  border-color:rgba(95,113,65,.3);
+  opacity:.5;
 }
 .adminHint{
   margin-top:8px;
