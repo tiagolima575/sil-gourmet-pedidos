@@ -394,10 +394,10 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
 <div class="sep"></div>
 <div class="sectionTitle">VALOR (Pix/Dinheiro)</div><div class="prices">
 <b>Preços:</b><br/>
-        • 1 unidade: <b>R$ 15,99</b><br/>
-        • Combo 2 unidades: <b>R$ 29,90</b><br/>
-        • Combo 3 unidades: <b>R$ 39,00</b><br/>
-        • Combo 5 unidades: <b>R$ 64,90</b>
+        • 1 unidade: <b id="price_single_label">R$ 15,99</b><br/>
+        • Combo 2 unidades: <b id="price_combo2_label">R$ 29,90</b><br/>
+        • Combo 3 unidades: <b id="price_combo3_label">R$ 39,00</b><br/>
+        • Combo 5 unidades: <b id="price_combo5_label">R$ 64,90</b>
 </div>
 <div class="sep"></div>
 <div style="margin-top:10px">
@@ -496,7 +496,7 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
 <input class="qtySquare" id="qty_abacaxi" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
 </div>
-<div class="hint" id="multiTotalHint" style="margin-top:8px">Total selecionado: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar mais produto</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último produto</button></div><div class="hint adminHint">Esse botão cria um novo espaço para foto, nome do produto, descrição e quantidade.</div></div>
+<div class="hint" id="multiTotalHint" style="margin-top:8px">Total selecionado: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar mais produto</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último produto</button></div><div class="hint adminHint">Esse botão cria um novo espaço para foto, nome do produto, descrição e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 39,00" type="text" value="39,00"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,90" type="text" value="64,90"/></div></div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div></div>
 </div>
 </div><div class="sep"></div>
 <div class="row">
@@ -566,6 +566,13 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
     const flavorStorageKey = "sil_gourmet_flavor_edits_v2";
     const extraFlavorStorageKey = "sil_gourmet_extra_flavors_v1";
     const extraFlavorPanelStorageKey = "sil_gourmet_extra_flavor_panel_v1";
+    const priceStorageKey = "sil_gourmet_price_edits_v1";
+    const defaultPrices = {
+      single: "15,99",
+      combo2: "29,90",
+      combo3: "39,00",
+      combo5: "64,90"
+    };
     const PLACEHOLDER_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
       <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
         <rect x="3" y="3" width="114" height="114" rx="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="4" stroke-dasharray="8 6"/>
@@ -726,9 +733,88 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
       applyFlavorEdits();
     }
 
+    function getPriceState(){
+      const base = { ...defaultPrices };
+      try{
+        const raw = localStorage.getItem(priceStorageKey);
+        if(!raw) return base;
+        const saved = JSON.parse(raw);
+        Object.keys(base).forEach(key=>{
+          if(saved && typeof saved[key] === 'string' && saved[key].trim()){
+            base[key] = saved[key].trim();
+          }
+        });
+        return base;
+      }catch(e){
+        return base;
+      }
+    }
+
+    let priceState = getPriceState();
+
+    function savePriceState(){
+      try{ localStorage.setItem(priceStorageKey, JSON.stringify(priceState)); }catch(e){}
+    }
+
+    function normalizePriceInput(value){
+      return String(value || '')
+        .replace(/[^\d,\.]/g, '')
+        .replace(/\./g, ',')
+        .replace(/,{2,}/g, ',')
+        .replace(/(,.*?),/g, '$1')
+        .trim();
+    }
+
+    function formatPriceLabel(value){
+      const clean = normalizePriceInput(value);
+      return clean ? `R$ ${clean}` : 'R$ 0,00';
+    }
+
+    function applyPriceState(){
+      const map = [
+        ['single', 'price_single_label', 'price_single_input'],
+        ['combo2', 'price_combo2_label', 'price_combo2_input'],
+        ['combo3', 'price_combo3_label', 'price_combo3_input'],
+        ['combo5', 'price_combo5_label', 'price_combo5_input']
+      ];
+      map.forEach(([key, labelId, inputId])=>{
+        const label = $(labelId);
+        const input = $(inputId);
+        const value = priceState[key] || defaultPrices[key];
+        if(label) label.textContent = formatPriceLabel(value);
+        if(input && document.activeElement !== input) input.value = value;
+      });
+    }
+
+    function bindPriceEditors(){
+      [
+        ['single', 'price_single_input'],
+        ['combo2', 'price_combo2_input'],
+        ['combo3', 'price_combo3_input'],
+        ['combo5', 'price_combo5_input']
+      ].forEach(([key, inputId])=>{
+        const input = $(inputId);
+        if(!input || input.dataset.boundPrice === '1') return;
+        input.dataset.boundPrice = '1';
+        input.addEventListener('input', ()=>{
+          const normalized = normalizePriceInput(input.value);
+          priceState[key] = normalized || defaultPrices[key];
+          savePriceState();
+          applyPriceState();
+        });
+        input.addEventListener('blur', ()=>{
+          const normalized = normalizePriceInput(input.value);
+          priceState[key] = normalized || defaultPrices[key];
+          savePriceState();
+          applyPriceState();
+        });
+      });
+      applyPriceState();
+    }
+
     function setAdminControlsEnabled(enabled){
       document.body.classList.toggle('adminUnlocked', !!enabled);
-      document.querySelectorAll('.flavorEditInput, .flavorEditDesc').forEach(input=>{
+      document.querySelectorAll('.flavorEditInput, .flavorEditDesc, #priceEditorGrid input').forEach(input=>{
         if(enabled){
           input.removeAttribute('readonly');
           input.tabIndex = 0;
@@ -1209,6 +1295,7 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
 
     document.addEventListener("DOMContentLoaded", ()=>{
       setupFlavorEditors();
+      bindPriceEditors();
       setupExtraFlavorPanelToggle();
       renderExtraFlavors();
       setThumbs();
