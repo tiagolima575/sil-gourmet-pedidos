@@ -1304,6 +1304,8 @@ body[data-theme="classic"] .imgModalClose{background:#17110c;color:#f7eedf}
       selectSingleFlavor(selectedFlavor);
     }
 
+    const adminPassword = 'lobo';
+
     function getExtraFlavorPanelState(){
       try{
         return localStorage.getItem(extraFlavorPanelStorageKey) === 'open';
@@ -1316,6 +1318,12 @@ body[data-theme="classic"] .imgModalClose{background:#17110c;color:#f7eedf}
       try{
         localStorage.setItem(extraFlavorPanelStorageKey, isOpen ? 'open' : 'closed');
       }catch(e){}
+    }
+
+    function checkAdminPassword(){
+      const typed = window.prompt('Digite a senha para abrir o painel secreto:');
+      if(typed === null) return false;
+      return typed.trim().toLowerCase() === adminPassword;
     }
 
     function setExtraFlavorPanel(open){
@@ -1334,9 +1342,18 @@ body[data-theme="classic"] .imgModalClose{background:#17110c;color:#f7eedf}
       toggle.addEventListener('click', ()=>{
         const panel = $('extraFlavorPanel');
         const isOpen = !!(panel && panel.classList.contains('show'));
-        setExtraFlavorPanel(!isOpen);
+        if(isOpen){
+          setExtraFlavorPanel(false);
+          return;
+        }
+        if(checkAdminPassword()){
+          setExtraFlavorPanel(true);
+        }else{
+          window.alert('Senha incorreta.');
+          setExtraFlavorPanel(false);
+        }
       });
-      setExtraFlavorPanel(getExtraFlavorPanelState());
+      setExtraFlavorPanel(false);
     }
 
     function createExtraFlavorKey(){
