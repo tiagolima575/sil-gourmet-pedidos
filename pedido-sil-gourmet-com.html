@@ -1005,7 +1005,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
 <input class="qtySquare" id="qty_abacaxi" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
 </div>
-<div class="hint" id="multiTotalHint" style="margin-top:8px">Total selecionado: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar mais produto</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último produto</button></div><div class="hint adminHint">Esse botão cria um novo espaço para foto, nome do produto, descrição e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
+<div class="hint" id="multiTotalHint" style="margin-top:8px">Total selecionado: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar mais produto</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último produto</button></div><div class="hint adminHint">Esse botão cria um novo espaço para foto, nome do produto, descrição e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
 </div>
 </div><div class="sep"></div>
 <div class="row">
@@ -1076,6 +1076,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
     const extraFlavorStorageKey = "sil_gourmet_extra_flavors_v1";
     const extraFlavorPanelStorageKey = "sil_gourmet_extra_flavor_panel_v1";
     const priceStorageKey = "sil_gourmet_price_edits_v2";
+    const perUnitStorageKey = "sil_gourmet_per_unit_edits_v1";
     const extraComboStorageKey = "sil_gourmet_extra_combos_v2";
     const themeStorageKey = "sil_gourmet_theme_v2";
     const priceViewStorageKey = "sil_gourmet_price_view_v1";
@@ -1269,6 +1270,29 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       try{ localStorage.setItem(priceStorageKey, JSON.stringify(priceState)); }catch(e){}
     }
 
+    function getPerUnitState(){
+      const base = { combo2: '', combo3: '', combo4: '', combo5: '' };
+      try{
+        const raw = localStorage.getItem(perUnitStorageKey);
+        if(!raw) return base;
+        const saved = JSON.parse(raw);
+        Object.keys(base).forEach(key=>{
+          if(saved && typeof saved[key] === 'string'){
+            base[key] = saved[key].trim();
+          }
+        });
+        return base;
+      }catch(e){
+        return base;
+      }
+    }
+
+    let perUnitState = getPerUnitState();
+
+    function savePerUnitState(){
+      try{ localStorage.setItem(perUnitStorageKey, JSON.stringify(perUnitState)); }catch(e){}
+    }
+
     function getExtraCombos(){
       try{
         const raw = localStorage.getItem(extraComboStorageKey);
@@ -1278,7 +1302,8 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
         return list.map((item, idx) => ({
           key: String(item.key || `combo_extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
           qty: normalizeComboQty(item.qty, idx),
-          price: normalizePriceInput(item.price || '') || '0,00'
+          price: normalizePriceInput(item.price || '') || '0,00',
+          perUnit: String(item.perUnit || '').trim()
         }));
       }catch(e){
         return [];
@@ -1347,24 +1372,47 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       return `R$ ${rounded.toFixed(2).replace('.', ',')}`;
     }
 
+    function priceToCents(value){
+      const clean = normalizePriceInput(value).replace(',', '.');
+      const parsed = Number(clean);
+      return Number.isFinite(parsed) ? Math.round(parsed * 100) : 0;
+    }
+
+    function formatCentsBRL(cents){
+      const value = Math.round(Number(cents) || 0) / 100;
+      return `R$ ${value.toFixed(2).replace('.', ',')}`;
+    }
+
+    function getAutoPerUnitLabel(qty, value){
+      const totalCents = priceToCents(value);
+      if(!(qty > 1) || totalCents <= 0) return '';
+      return `Sai por ${formatCentsBRL(Math.round(totalCents / qty))} cada`;
+    }
+
+    function getPerUnitLabel(qty, value, customLabel = ''){
+      const manual = String(customLabel || '').trim();
+      if(manual) return manual;
+      return getAutoPerUnitLabel(qty, value);
+    }
+
     function getCurrentPriceView(){
       return document.body.getAttribute('data-price-view') || '3';
     }
 
-    function buildComboPriceHtml(qty, value, labelId = ''){
+    function buildComboPriceHtml(qty, value, labelId = '', customPerUnit = ''){
       const total = priceToNumber(value);
       const name = qty === 1 ? '1 unidade' : `Combo ${qty} unidades`;
       const totalLabel = formatPriceLabel(value);
       const totalHtml = `<b${labelId ? ` id="${labelId}"` : ''}>${totalLabel}</b>`;
-      const hasPerUnit = qty > 1 && total > 0;
-      const perUnitLabel = hasPerUnit ? `Sai por ${formatMoneyBRL(total / qty)} cada` : '';
+      const perUnitLabel = getPerUnitLabel(qty, value, customPerUnit);
+      const hasPerUnit = qty > 1 && !!perUnitLabel;
       const badgeLabel = qty === 5 ? '⭐ Melhor custo-benefício' : '';
       const view = getCurrentPriceView();
 
       if(view === '1'){
         return `
           <div class="priceLine">
-            <span>${name}: ${totalHtml}${hasPerUnit ? ` — <span class="priceLinePerUnit">${perUnitLabel.toLowerCase()}</span>` : ''}</span>
+            <span>${name}: ${totalHtml}${hasPerUnit ? ` — <span class="priceLinePerUnit">${perUnitLabel}</span>` : ''}</span>
             ${badgeLabel ? `<div class="priceLineBadge">${badgeLabel}</div>` : ''}
           </div>`;
       }
@@ -1402,13 +1450,13 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       if(!priceList) return;
       const items = [
         { qty: 1, html: buildComboPriceHtml(1, priceState.single || defaultPrices.single, 'price_single_label') },
-        { qty: 2, html: buildComboPriceHtml(2, priceState.combo2 || defaultPrices.combo2, 'price_combo2_label') },
-        { qty: 3, html: buildComboPriceHtml(3, priceState.combo3 || defaultPrices.combo3, 'price_combo3_label') },
-        { qty: 4, html: buildComboPriceHtml(4, priceState.combo4 || defaultPrices.combo4, 'price_combo4_label') },
-        { qty: 5, html: buildComboPriceHtml(5, priceState.combo5 || defaultPrices.combo5, 'price_combo5_label') },
+        { qty: 2, html: buildComboPriceHtml(2, priceState.combo2 || defaultPrices.combo2, 'price_combo2_label', perUnitState.combo2) },
+        { qty: 3, html: buildComboPriceHtml(3, priceState.combo3 || defaultPrices.combo3, 'price_combo3_label', perUnitState.combo3) },
+        { qty: 4, html: buildComboPriceHtml(4, priceState.combo4 || defaultPrices.combo4, 'price_combo4_label', perUnitState.combo4) },
+        { qty: 5, html: buildComboPriceHtml(5, priceState.combo5 || defaultPrices.combo5, 'price_combo5_label', perUnitState.combo5) },
         ...extraCombos.map(item => ({
           qty: normalizeComboQty(item.qty),
-          html: buildComboPriceHtml(normalizeComboQty(item.qty), item.price)
+          html: buildComboPriceHtml(normalizeComboQty(item.qty), item.price, '', item.perUnit || '')
         }))
       ].sort((a, b) => a.qty - b.qty);
       priceList.className = `priceList mode-${getCurrentPriceView()}`;
@@ -1434,6 +1482,10 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
             <label>Preço do combo ${normalizeComboQty(item.qty)}</label>
             <input data-extra-combo-price="${item.key}" inputmode="decimal" placeholder="Ex.: 49,90" type="text" value="${item.price || ''}"/>
           </div>
+          <div style="grid-column:1 / -1">
+            <label>Texto “Sai por” do combo ${normalizeComboQty(item.qty)}</label>
+            <input data-extra-combo-per-unit="${item.key}" placeholder="Deixe em branco para automático" type="text" value="${String(item.perUnit || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}"/>
+          </div>
         `;
         grid.appendChild(row);
       });
@@ -1451,6 +1503,16 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       ].forEach(([key, inputId])=>{
         const input = $(inputId);
         const value = priceState[key] || defaultPrices[key];
+        if(input && document.activeElement !== input) input.value = value;
+      });
+      [
+        ['combo2', 'per_unit_combo2_input'],
+        ['combo3', 'per_unit_combo3_input'],
+        ['combo4', 'per_unit_combo4_input'],
+        ['combo5', 'per_unit_combo5_input']
+      ].forEach(([key, inputId])=>{
+        const input = $(inputId);
+        const value = perUnitState[key] || '';
         if(input && document.activeElement !== input) input.value = value;
       });
       renderPriceList();
@@ -1497,13 +1559,33 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
           applyPriceState();
         });
       });
+
+      document.querySelectorAll('[data-extra-combo-per-unit]').forEach(input=>{
+        if(input.dataset.boundExtraComboPerUnit === '1') return;
+        input.dataset.boundExtraComboPerUnit = '1';
+        input.addEventListener('input', ()=>{
+          const key = input.getAttribute('data-extra-combo-per-unit');
+          const manual = String(input.value || '').trim();
+          extraCombos = extraCombos.map(item => item.key === key ? ({ ...item, perUnit: manual }) : item);
+          saveExtraCombos();
+          renderPriceList();
+        });
+        input.addEventListener('blur', ()=>{
+          const key = input.getAttribute('data-extra-combo-per-unit');
+          const manual = String(input.value || '').trim();
+          extraCombos = extraCombos.map(item => item.key === key ? ({ ...item, perUnit: manual }) : item);
+          saveExtraCombos();
+          applyPriceState();
+        });
+      });
     }
 
     function addExtraCombo(){
       extraCombos.push({
         key: createExtraComboKey(),
         qty: getNextComboQty(),
-        price: '0,00'
+        price: '0,00',
+        perUnit: ''
       });
       saveExtraCombos();
       applyPriceState();
@@ -1537,6 +1619,30 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
           const normalized = normalizePriceInput(input.value);
           priceState[key] = normalized || defaultPrices[key];
           savePriceState();
+          applyPriceState();
+        });
+      });
+      applyPriceState();
+    }
+
+    function bindPerUnitEditors(){
+      [
+        ['combo2', 'per_unit_combo2_input'],
+        ['combo3', 'per_unit_combo3_input'],
+        ['combo4', 'per_unit_combo4_input'],
+        ['combo5', 'per_unit_combo5_input']
+      ].forEach(([key, inputId])=>{
+        const input = $(inputId);
+        if(!input || input.dataset.boundPerUnit === '1') return;
+        input.dataset.boundPerUnit = '1';
+        input.addEventListener('input', ()=>{
+          perUnitState[key] = String(input.value || '').trim();
+          savePerUnitState();
+          renderPriceList();
+        });
+        input.addEventListener('blur', ()=>{
+          perUnitState[key] = String(input.value || '').trim();
+          savePerUnitState();
           applyPriceState();
         });
       });
@@ -1620,7 +1726,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
 
     function setAdminControlsEnabled(enabled){
       document.body.classList.toggle('adminUnlocked', !!enabled);
-      document.querySelectorAll('.flavorEditInput, .flavorEditDesc, #priceEditorGrid input, #extraComboEditorGrid input').forEach(input=>{
+      document.querySelectorAll('.flavorEditInput, .flavorEditDesc, #priceEditorGrid input, #perUnitEditorGrid input, #extraComboEditorGrid input').forEach(input=>{
         if(enabled){
           input.removeAttribute('readonly');
           input.removeAttribute('disabled');
@@ -2125,6 +2231,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
     document.addEventListener("DOMContentLoaded", ()=>{
       setupFlavorEditors();
       bindPriceEditors();
+      bindPerUnitEditors();
       setupThemeEditor();
       setupPriceViewEditor();
       setupExtraFlavorPanelToggle();
