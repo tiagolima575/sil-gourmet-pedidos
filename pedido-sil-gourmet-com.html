@@ -452,20 +452,20 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
   margin-top:14px;
   padding:14px 16px;
   border-radius:18px;
-  background:linear-gradient(180deg, rgba(223,238,255,.92), rgba(204,228,255,.88));
-  border:1px solid rgba(53,109,184,.28);
-  box-shadow:0 8px 22px rgba(33,83,146,.10), inset 0 1px 0 rgba(255,255,255,.55);
+  background:linear-gradient(180deg, #7f9560, #687a4c);
+  border:1px solid rgba(157,184,108,.34);
+  box-shadow:0 10px 22px rgba(54,66,37,.22), inset 0 1px 0 rgba(255,255,255,.16);
 }
 .pixTitle{
   margin:0 0 8px;
   font-size:15px;
   font-weight:900;
   letter-spacing:.02em;
-  color:#15457a;
+  color:#f4efe5;
 }
 .pixLine{
   margin:0;
-  color:#17304a;
+  color:#f4efe5;
   font-size:14px;
   line-height:1.55;
 }
@@ -481,40 +481,41 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
   display:inline-block;
   padding:8px 12px;
   border-radius:12px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(53,109,184,.22);
-  color:#0f3761;
+  background:rgba(255,248,238,.92);
+  border:1px solid rgba(107,82,58,.18);
+  color:#2e401d;
   font-weight:900;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
 }
 .copyPixBtn{
   appearance:none;
-  border:1px solid rgba(21,69,122,.22);
-  background:#1f6fd1;
-  color:#fff;
+  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(180deg, #6f8551, #5b6f40);
+  color:#f8f4ea;
   font-weight:900;
   border-radius:12px;
   padding:8px 12px;
   cursor:pointer;
-  box-shadow:0 8px 18px rgba(31,111,209,.18);
+  box-shadow:0 8px 18px rgba(54,66,37,.22), inset 0 1px 0 rgba(255,255,255,.18);
 }
 .copyPixBtn:hover{filter:brightness(.98)}
 .copyPixBtn:active{transform:translateY(1px)}
 .copyPixBtn.isCopied{
-  background:#0e9f6e;
-  border-color:rgba(14,159,110,.3);
+  background:linear-gradient(180deg, #88a260, #6f874f);
+  border-color:rgba(255,255,255,.2);
 }
 .pixCopyHint{
   font-size:12px;
   font-weight:800;
-  color:#114a80;
+  color:#eef4e2;
 }
 .pixNotice{
   margin-top:10px;
   padding:10px 12px;
   border-radius:14px;
-  background:rgba(21,69,122,.08);
-  border:1px solid rgba(21,69,122,.14);
-  color:#12395f;
+  background:rgba(28,39,15,.18);
+  border:1px solid rgba(255,255,255,.14);
+  color:#f4efe5;
   font-size:13px;
   line-height:1.5;
   font-weight:700;
@@ -1307,13 +1308,12 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 <div class="hint">Selecione a opção desejada.</div>
 </div>
 <div style="margin-top:12px">
-<div class="sectionTitle">IOGURTE NATURAL</div><label>Como você prefere receber o iogurte?</label>
+<div class="sectionTitle">IOGURTE NATURAL</div><label>Informação sobre o adoçamento</label>
 <div class="grid" style="gap:10px">
-<label class="pill optionBlock"><input name="adocamento" type="radio" value="Natural (sem açúcar)"/> Natural (sem açúcar)</label>
-<label class="pill optionBlock steviaBlock">
-<span><input name="adocamento" type="radio" value="Natural com stévia"/> Natural com stévia</span>
-<small>Stévia é um adoçante sem açúcar.</small>
-</label>
+<div class="pill optionBlock steviaBlock" role="note" aria-label="Informação sobre o adoçamento do iogurte">
+<span><strong>Adoçado com stévia</strong></span>
+<small>Nosso iogurte natural é levemente adoçado com stévia, proporcionando sabor suave e equilibrado, sem adição de açúcar.</small>
+</div>
 </div>
 
 </div>
@@ -2376,9 +2376,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function getAdocamento(){
-      const radios = document.querySelectorAll('input[name="adocamento"]');
-      for(const r of radios){ if(r.checked) return r.value; }
-      return "";
+      return "Adoçado com stévia";
     }
 
     function updateDeliveryUI(){
@@ -2755,7 +2753,6 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       if(!nome) throw new Error("Informe o nome.");
       if(modo === "Entrega" && !bairro) throw new Error("Entrega selecionada: escolha o bairro/local.");
       if(modo === "Entrega" && !endereco) throw new Error("Entrega selecionada: informe o endereço.");
-      if(!adocamento) throw new Error("Selecione como você prefere receber o iogurte.");
 
       const multi = $("multiMode").checked;
       let qtd = asInt($("qtd").value);
@@ -2812,7 +2809,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         `🥄 *Colherzinha:* ${colher}`,
         `🌱 *Chia:* ${chia}`,
         `🥛 *Iogurte:* ${adocamento}`,
-        (adocamento === "Natural com stévia") ? "Obs. adoçamento: stévia enviada separadamente; o iogurte vai natural." : null,
+        "Obs. adoçamento: nosso iogurte natural é levemente adoçado com stévia, proporcionando sabor suave e equilibrado, sem adição de açúcar.",
         obs ? `📝 *Observações:* ${obs}` : null,
         '',
         '━━━━━━━━━━',
