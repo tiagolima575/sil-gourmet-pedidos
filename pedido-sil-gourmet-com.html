@@ -378,6 +378,148 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
   box-shadow:0 0 0 2px rgba(95,113,65,.12);
 }
 .previewBox,.previewImg,.previewText,.qtyCtl,.qtyBtn,.qtyInput,.mixQty,.logoWrap,.logoImg,.badge,.sub{all:unset;}
+
+.orderSummary{
+  margin-top:12px;
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(107,82,58,.18);
+  background:linear-gradient(180deg, rgba(255,248,238,.96), rgba(244,233,212,.96));
+  box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.summaryRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(120,93,66,.14);
+}
+.summaryRow:last-of-type{border-bottom:none;padding-bottom:2px}
+.summaryLabel{
+  font-size:14px;
+  font-weight:700;
+  color:#35261b;
+}
+.summaryValue{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:124px;
+  padding:8px 12px;
+  border-radius:999px;
+  font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  text-align:center;
+  white-space:nowrap;
+}
+.summaryValueProduct{
+  color:#1f5f36;
+  background:rgba(80,150,100,.12);
+  border:1px solid rgba(80,150,100,.22);
+}
+.summaryValueDelivery{
+  color:#185ea9;
+  background:rgba(24,94,169,.12);
+  border:1px solid rgba(24,94,169,.2);
+}
+.summaryValueTotal{
+  color:#2f2318;
+  background:rgba(95,113,65,.14);
+  border:1px solid rgba(95,113,65,.24);
+}
+.summaryHint{
+  margin-top:10px;
+  font-size:13px;
+  color:#5b4735;
+  line-height:1.45;
+}
+.summaryHint strong{color:#2f2318}
+body[data-theme="dark"] .orderSummary,
+body[data-theme="premium"] .orderSummary{
+  background:linear-gradient(180deg, rgba(28,21,16,.96), rgba(40,30,23,.96));
+  border-color:rgba(240,224,191,.12);
+  box-shadow:0 12px 28px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.05);
+}
+body[data-theme="dark"] .summaryLabel,
+body[data-theme="premium"] .summaryLabel,
+body[data-theme="dark"] .summaryHint,
+body[data-theme="premium"] .summaryHint{color:#eadbc2}
+body[data-theme="dark"] .summaryHint strong,
+body[data-theme="premium"] .summaryHint strong{color:#fff5df}
+
+
+.pixBox{
+  margin-top:14px;
+  padding:14px 16px;
+  border-radius:18px;
+  background:linear-gradient(180deg, rgba(223,238,255,.92), rgba(204,228,255,.88));
+  border:1px solid rgba(53,109,184,.28);
+  box-shadow:0 8px 22px rgba(33,83,146,.10), inset 0 1px 0 rgba(255,255,255,.55);
+}
+.pixTitle{
+  margin:0 0 8px;
+  font-size:15px;
+  font-weight:900;
+  letter-spacing:.02em;
+  color:#15457a;
+}
+.pixLine{
+  margin:0;
+  color:#17304a;
+  font-size:14px;
+  line-height:1.55;
+}
+.pixLine + .pixLine{margin-top:4px}
+.pixKeyWrap{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.pixKey{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(53,109,184,.22);
+  color:#0f3761;
+  font-weight:900;
+}
+.copyPixBtn{
+  appearance:none;
+  border:1px solid rgba(21,69,122,.22);
+  background:#1f6fd1;
+  color:#fff;
+  font-weight:900;
+  border-radius:12px;
+  padding:8px 12px;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(31,111,209,.18);
+}
+.copyPixBtn:hover{filter:brightness(.98)}
+.copyPixBtn:active{transform:translateY(1px)}
+.copyPixBtn.isCopied{
+  background:#0e9f6e;
+  border-color:rgba(14,159,110,.3);
+}
+.pixCopyHint{
+  font-size:12px;
+  font-weight:800;
+  color:#114a80;
+}
+.pixNotice{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(21,69,122,.08);
+  border:1px solid rgba(21,69,122,.14);
+  color:#12395f;
+  font-size:13px;
+  line-height:1.5;
+  font-weight:700;
+}
+
 </style>
 
 <style id="theme-override">
@@ -516,6 +658,75 @@ input[readonly]{background:rgba(36,26,16,.74);color:#f2e7d2}
     background:linear-gradient(180deg, rgba(58,40,21,.94), rgba(73,53,28,.90));
   }
 }
+
+.orderSummary{
+  margin-top:12px;
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(107,82,58,.18);
+  background:linear-gradient(180deg, rgba(255,248,238,.96), rgba(244,233,212,.96));
+  box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.summaryRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(120,93,66,.14);
+}
+.summaryRow:last-of-type{border-bottom:none;padding-bottom:2px}
+.summaryLabel{
+  font-size:14px;
+  font-weight:700;
+  color:#35261b;
+}
+.summaryValue{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:124px;
+  padding:8px 12px;
+  border-radius:999px;
+  font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  text-align:center;
+  white-space:nowrap;
+}
+.summaryValueProduct{
+  color:#1f5f36;
+  background:rgba(80,150,100,.12);
+  border:1px solid rgba(80,150,100,.22);
+}
+.summaryValueDelivery{
+  color:#185ea9;
+  background:rgba(24,94,169,.12);
+  border:1px solid rgba(24,94,169,.2);
+}
+.summaryValueTotal{
+  color:#2f2318;
+  background:rgba(95,113,65,.14);
+  border:1px solid rgba(95,113,65,.24);
+}
+.summaryHint{
+  margin-top:10px;
+  font-size:13px;
+  color:#5b4735;
+  line-height:1.45;
+}
+.summaryHint strong{color:#2f2318}
+body[data-theme="dark"] .orderSummary,
+body[data-theme="premium"] .orderSummary{
+  background:linear-gradient(180deg, rgba(28,21,16,.96), rgba(40,30,23,.96));
+  border-color:rgba(240,224,191,.12);
+  box-shadow:0 12px 28px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.05);
+}
+body[data-theme="dark"] .summaryLabel,
+body[data-theme="premium"] .summaryLabel,
+body[data-theme="dark"] .summaryHint,
+body[data-theme="premium"] .summaryHint{color:#eadbc2}
+body[data-theme="dark"] .summaryHint strong,
+body[data-theme="premium"] .summaryHint strong{color:#fff5df}
+
 </style>
 <style id="theme-switch-overrides">
 .adminThemeRow{
@@ -859,6 +1070,75 @@ body[data-theme="classic"] #priceViewEditorRow{
 }
 body[data-theme="classic"] .adminHint{color:#5a4736}
 
+
+.orderSummary{
+  margin-top:12px;
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(107,82,58,.18);
+  background:linear-gradient(180deg, rgba(255,248,238,.96), rgba(244,233,212,.96));
+  box-shadow:0 10px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.45);
+}
+.summaryRow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(120,93,66,.14);
+}
+.summaryRow:last-of-type{border-bottom:none;padding-bottom:2px}
+.summaryLabel{
+  font-size:14px;
+  font-weight:700;
+  color:#35261b;
+}
+.summaryValue{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:124px;
+  padding:8px 12px;
+  border-radius:999px;
+  font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  text-align:center;
+  white-space:nowrap;
+}
+.summaryValueProduct{
+  color:#1f5f36;
+  background:rgba(80,150,100,.12);
+  border:1px solid rgba(80,150,100,.22);
+}
+.summaryValueDelivery{
+  color:#185ea9;
+  background:rgba(24,94,169,.12);
+  border:1px solid rgba(24,94,169,.2);
+}
+.summaryValueTotal{
+  color:#2f2318;
+  background:rgba(95,113,65,.14);
+  border:1px solid rgba(95,113,65,.24);
+}
+.summaryHint{
+  margin-top:10px;
+  font-size:13px;
+  color:#5b4735;
+  line-height:1.45;
+}
+.summaryHint strong{color:#2f2318}
+body[data-theme="dark"] .orderSummary,
+body[data-theme="premium"] .orderSummary{
+  background:linear-gradient(180deg, rgba(28,21,16,.96), rgba(40,30,23,.96));
+  border-color:rgba(240,224,191,.12);
+  box-shadow:0 12px 28px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.05);
+}
+body[data-theme="dark"] .summaryLabel,
+body[data-theme="premium"] .summaryLabel,
+body[data-theme="dark"] .summaryHint,
+body[data-theme="premium"] .summaryHint{color:#eadbc2}
+body[data-theme="dark"] .summaryHint strong,
+body[data-theme="premium"] .summaryHint strong{color:#fff5df}
+
 </style>
 
 </head>
@@ -899,9 +1179,16 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
 <input id="datahora" placeholder="Ex.: Hoje 18:00 / Amanhã 09:30"/>
 </div>
 <div>
-<label>Endereço (somente se entrega)</label>
-<input id="endereco" placeholder="Rua, nº, bairro"/>
+<label>Bairro / local de entrega</label>
+<select id="bairro">
+<option value="">Selecione o bairro/local</option>
+</select>
+<div class="hint">Ao escolher o bairro/local, a taxa aparece automática.</div>
 </div>
+</div>
+<div style="margin-top:12px">
+<label>Endereço / referência (somente se entrega)</label>
+<input id="endereco" placeholder="Rua, nº, ponto de referência"/>
 </div>
 <div class="sep"></div>
 <div class="sectionTitle">VALOR (Pix/Dinheiro)</div><div class="prices">
@@ -1031,6 +1318,39 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
 
 </div>
 <div style="margin-top:12px">
+<div class="sectionTitle">RESUMO</div>
+<div class="orderSummary" id="orderSummary">
+<div class="summaryRow">
+<span class="summaryLabel">Produto</span>
+<span class="summaryValue summaryValueProduct" id="summaryProductLabel">Selecione os potinhos</span>
+</div>
+<div class="summaryRow">
+<span class="summaryLabel">Valor do produto</span>
+<span class="summaryValue summaryValueProduct" id="summaryProductValue">R$ 0,00</span>
+</div>
+<div class="summaryRow">
+<span class="summaryLabel">Taxa de entrega</span>
+<span class="summaryValue summaryValueDelivery" id="summaryDeliveryValue">R$ 0,00</span>
+</div>
+<div class="summaryRow">
+<span class="summaryLabel">Total do pedido</span>
+<span class="summaryValue summaryValueTotal" id="summaryTotalValue">R$ 0,00</span>
+</div>
+<div class="summaryHint" id="summaryDeliveryArea">Retirada no local.</div>
+</div>
+<div class="pixBox" id="pixBox">
+<p class="pixTitle">💳 PIX para confirmação do pedido</p>
+<p class="pixLine"><strong>Recebedor:</strong> Tiago Lima de Jesus</p>
+<p class="pixLine"><strong>Chave PIX:</strong></p>
+<div class="pixKeyWrap">
+<div class="pixKey" id="pixKeyDisplay">69 99926-5256</div>
+<button class="copyPixBtn" id="copyPixBtn" type="button">Copiar PIX</button>
+<span class="pixCopyHint" id="pixCopyHint">Toque para copiar a chave.</span>
+</div>
+<div class="pixNotice">Após o envio do comprovante, seu pedido será confirmado. Para entrega, o pedido só entra em rota após a confirmação do PIX.</div>
+</div>
+</div>
+<div style="margin-top:12px">
 <label class="fieldLabel">Observações (opcional)</label>
 <textarea id="obs" placeholder="Ex.: sem entrega, retirar às 18h / portaria / referência"></textarea>
 </div>
@@ -1087,6 +1407,103 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       combo4: "53,90",
       combo5: "64,95"
     };
+    const DELIVERY_AREAS = [
+      {
+        group: "1º Distrito — Bairros",
+        items: [
+          { name: "Açai", fee: 9 },
+          { name: "Aurélio Bernades", fee: 8 },
+          { name: "Araçá", fee: 8 },
+          { name: "Bela Vista", fee: 8 },
+          { name: "Bosque dos Ipês", fee: 9 },
+          { name: "Centro", fee: 9 },
+          { name: "Casa Preta", fee: 8 },
+          { name: "Cidade Jardim", fee: 9 },
+          { name: "Copas Verdes", fee: 10 },
+          { name: "Colina Park 1 / Colina 2", fee: 8 },
+          { name: "2 de Abril", fee: 9 },
+          { name: "Dom Bosco", fee: 8 },
+          { name: "Ecovilli", fee: 9 },
+          { name: "Green Park", fee: 9 },
+          { name: "Jardim dos Migrantes", fee: 9 },
+          { name: "Jardim Presidencial", fee: 9 },
+          { name: "Milão", fee: 10 },
+          { name: "Novo Horizonte", fee: 9 },
+          { name: "Novo Urupá", fee: 9 },
+          { name: "Novo Ji-Paraná", fee: 9 },
+          { name: "Parque São Pedro", fee: 9 },
+          { name: "Planalto", fee: 9 },
+          { name: "Parque Amazonas", fee: 9 },
+          { name: "Santiago — Km 5", fee: 9 },
+          { name: "São Bernardo — Km 4", fee: 9 },
+          { name: "Urupá", fee: 9 },
+          { name: "Vila de Rondônia", fee: 9 },
+          { name: "Veneza", fee: 10 },
+          { name: "Vale Verde", fee: 9 }
+        ]
+      },
+      {
+        group: "2º Distrito — Bairros",
+        items: [
+          { name: "Alto Alegre", fee: 15 },
+          { name: "Boa Esperança", fee: 16 },
+          { name: "Carneiro", fee: 16 },
+          { name: "Cafezinho", fee: 13 },
+          { name: "Capelasso", fee: 16 },
+          { name: "Duque de Caxias", fee: 12 },
+          { name: "Gren Villi", fee: 15 },
+          { name: "Habitar Brasil", fee: 15 },
+          { name: "JK", fee: 13 },
+          { name: "Jardim Flórida", fee: 15 },
+          { name: "Jardim das Seringueiras", fee: 13 },
+          { name: "Jorge Teixeira", fee: 13 },
+          { name: "Mário Andreazza", fee: 12 },
+          { name: "Nova Brasília", fee: 12 },
+          { name: "Nossa Senhora de Fátima", fee: 13 },
+          { name: "Orleans 1", fee: 13 },
+          { name: "Orleans 2", fee: 16 },
+          { name: "Parque Brasil 1 e 2", fee: 16 },
+          { name: "Parque dos Pioneiros", fee: 12 },
+          { name: "Primavera", fee: 12 },
+          { name: "Riachuelo", fee: 12 },
+          { name: "Rondon", fee: 16 },
+          { name: "São Cristóvão", fee: 13 },
+          { name: "São Francisco", fee: 12 },
+          { name: "São Pedro", fee: 12 },
+          { name: "Talismã", fee: 16 },
+          { name: "Terra Nova", fee: 16 },
+          { name: "União 2", fee: 13 },
+          { name: "Vila Jotão", fee: 12 },
+          { name: "Val Paraíso", fee: 12 }
+        ]
+      },
+      {
+        group: "1º Distrito — Lugares específicos",
+        items: [
+          { name: "Aldeia do Lago", fee: 15 },
+          { name: "Espelho d'Água", fee: 17 },
+          { name: "Polícia Federal", fee: 18 },
+          { name: "Sal Max", fee: 15 },
+          { name: "Setor Chacareiro", fee: 12 },
+          { name: "Unijipa", fee: 10 },
+          { name: "Setor Industrial", fee: 15 },
+          { name: "Frigorífico Frialto", fee: 20 }
+        ]
+      },
+      {
+        group: "2º Distrito — Lugares específicos",
+        items: [
+          { name: "Anel Viário — saída para Presidente Médici", fee: 15 },
+          { name: "Aeroporto", fee: 20 },
+          { name: "Big Sal", fee: 17 },
+          { name: "Depósito da Gazin", fee: 17 },
+          { name: "Frigorífico Distriboi", fee: 17 },
+          { name: "Rical Alimentos", fee: 17 },
+          { name: "Posto Perfil", fee: 25 },
+          { name: "Zona rural / fora da cidade", fee: 2, perKm: true }
+        ]
+      }
+    ];
     const PLACEHOLDER_SVG = `data:image/svg+xml;utf8,${encodeURIComponent(`
       <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
         <rect x="3" y="3" width="114" height="114" rx="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="4" stroke-dasharray="8 6"/>
@@ -1517,6 +1934,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       });
       renderPriceList();
       renderExtraComboEditors();
+      updateOrderSummary();
     }
 
     function bindExtraComboEditors(){
@@ -1749,6 +2167,178 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       });
     }
 
+
+    function normalizeAreaKey(value){
+      return String(value || '')
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-zA-Z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .toUpperCase();
+    }
+
+    const DELIVERY_AREA_FLAT = DELIVERY_AREAS.flatMap(group =>
+      group.items.map(item => ({ ...item, group: group.group, key: normalizeAreaKey(item.name) }))
+    );
+
+    const DELIVERY_AREA_MAP = DELIVERY_AREA_FLAT.reduce((acc, item) => {
+      acc[item.key] = item;
+      return acc;
+    }, {});
+
+    function populateDeliveryAreas(){
+      const select = $('bairro');
+      if(!select) return;
+      const current = select.value;
+      select.innerHTML = '<option value="">Selecione o bairro/local</option>';
+      DELIVERY_AREAS.forEach(group => {
+        const optgroup = document.createElement('optgroup');
+        optgroup.label = group.group;
+        group.items.forEach(item => {
+          const option = document.createElement('option');
+          option.value = normalizeAreaKey(item.name);
+          option.textContent = item.perKm
+            ? `${item.name} — R$ ${item.fee.toFixed(2).replace('.', ',')} por km`
+            : `${item.name} — ${formatMoneyBRL(item.fee)}`;
+          optgroup.appendChild(option);
+        });
+        select.appendChild(optgroup);
+      });
+      if(current && DELIVERY_AREA_MAP[current]) select.value = current;
+    }
+
+    function getSelectedDeliveryArea(){
+      const select = $('bairro');
+      if(!select) return null;
+      const key = normalizeAreaKey(select.value);
+      return DELIVERY_AREA_MAP[key] || null;
+    }
+
+    function getPriceForQuantity(qtd){
+      const qty = clampInt(Number(qtd) || 0);
+      const builtInMap = {
+        1: { label: '1 unidade', cents: priceToCents(priceState.single || defaultPrices.single), exactCombo: true, pricingRule: 'single' },
+        2: { label: 'Combo 2 unidades', cents: priceToCents(priceState.combo2 || defaultPrices.combo2), exactCombo: true, pricingRule: 'combo_exact' },
+        3: { label: 'Combo 3 unidades', cents: priceToCents(priceState.combo3 || defaultPrices.combo3), exactCombo: true, pricingRule: 'combo_exact' },
+        4: { label: 'Combo 4 unidades', cents: priceToCents(priceState.combo4 || defaultPrices.combo4), exactCombo: true, pricingRule: 'combo_exact' },
+        5: { label: 'Combo 5 unidades', cents: priceToCents(priceState.combo5 || defaultPrices.combo5), exactCombo: true, pricingRule: 'combo_exact' }
+      };
+      if(builtInMap[qty]) return { qty, ...builtInMap[qty] };
+
+      const extra = extraCombos.find(item => normalizeComboQty(item.qty) === qty);
+      if(extra){
+        return {
+          qty,
+          label: `Combo ${qty} unidades`,
+          cents: priceToCents(extra.price || '0,00'),
+          exactCombo: true,
+          pricingRule: 'combo_exact'
+        };
+      }
+
+      if(qty > 5){
+        const combo5Cents = priceToCents(priceState.combo5 || defaultPrices.combo5);
+        const combo5UnitCents = combo5Cents > 0 ? Math.round(combo5Cents / 5) : 0;
+        return {
+          qty,
+          label: `${qty} unidades`,
+          cents: combo5UnitCents * qty,
+          exactCombo: false,
+          pricingRule: 'combo5_unit',
+          unitCents: combo5UnitCents
+        };
+      }
+
+      const singleCents = priceToCents(priceState.single || defaultPrices.single);
+      return {
+        qty,
+        label: qty === 1 ? '1 unidade' : `${qty} unidades`,
+        cents: singleCents * qty,
+        exactCombo: false,
+        pricingRule: 'single_unit'
+      };
+    }
+
+    function getOrderSummaryData(){
+      const modo = getModo();
+      const qtd = $('multiMode').checked ? getMultiTotal() : asInt($('qtd').value);
+      const product = getPriceForQuantity(qtd);
+      const area = getSelectedDeliveryArea();
+      const isDelivery = modo === 'Entrega';
+
+      let deliveryLabel = 'Retirada no local';
+      let deliveryValueLabel = formatMoneyBRL(0);
+      let deliveryCents = 0;
+      let totalLabel = product.cents > 0 ? formatCentsBRL(product.cents) : formatMoneyBRL(0);
+      let totalCents = product.cents;
+      let totalKnown = true;
+
+      if(isDelivery){
+        if(area){
+          deliveryLabel = area.name;
+          if(area.perKm){
+            deliveryValueLabel = `${formatMoneyBRL(area.fee)} por km`;
+            totalLabel = 'Calculado por quilômetro';
+            totalKnown = false;
+          }else{
+            deliveryCents = Math.round((Number(area.fee) || 0) * 100);
+            deliveryValueLabel = formatCentsBRL(deliveryCents);
+            totalCents = product.cents + deliveryCents;
+            totalLabel = formatCentsBRL(totalCents);
+          }
+        }else{
+          deliveryLabel = 'Selecione o bairro/local';
+          deliveryValueLabel = '—';
+          totalLabel = product.cents > 0 ? 'Selecione o bairro' : formatMoneyBRL(0);
+          totalKnown = false;
+        }
+      }
+
+      return {
+        qtd,
+        mode: modo,
+        productLabel: product.qty > 0 ? product.label : 'Selecione os potinhos',
+        productValueLabel: product.cents > 0 ? formatCentsBRL(product.cents) : formatMoneyBRL(0),
+        productCents: product.cents,
+        productExactCombo: product.exactCombo,
+        productPricingRule: product.pricingRule || '',
+        productUnitCents: product.unitCents || 0,
+        deliveryLabel,
+        deliveryValueLabel,
+        deliveryCents,
+        totalLabel,
+        totalCents,
+        totalKnown,
+        area,
+        isDelivery
+      };
+    }
+
+    function updateOrderSummary(){
+      const data = getOrderSummaryData();
+      const productLabel = $('summaryProductLabel');
+      const productValue = $('summaryProductValue');
+      const deliveryValue = $('summaryDeliveryValue');
+      const totalValue = $('summaryTotalValue');
+      const deliveryArea = $('summaryDeliveryArea');
+      if(productLabel) productLabel.textContent = data.productLabel;
+      if(productValue) productValue.textContent = data.productValueLabel;
+      if(deliveryValue) deliveryValue.textContent = data.deliveryValueLabel;
+      if(totalValue) totalValue.textContent = data.totalLabel;
+      if(deliveryArea){
+        const combo5RuleHtml = (data.productPricingRule === 'combo5_unit' && data.productUnitCents > 0)
+          ? `<br><strong>Regra do preço:</strong> acima de 5 unidades, cada potinho sai por ${formatCentsBRL(data.productUnitCents)} (valor do combo 5).`
+          : '';
+        if(data.isDelivery){
+          deliveryArea.innerHTML = data.area
+            ? `<strong>Bairro/local:</strong> ${data.deliveryLabel}${combo5RuleHtml}`
+            : `<strong>Bairro/local:</strong> selecione para calcular a taxa.${combo5RuleHtml}`;
+        }else{
+          deliveryArea.innerHTML = `Retirada no local.${combo5RuleHtml}`;
+        }
+      }
+    }
+
     function asInt(v){
       const n = parseInt(v, 10);
       return Number.isFinite(n) ? n : 0;
@@ -1794,7 +2384,28 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
     function updateDeliveryUI(){
       const modo = getModo();
       const fee = document.getElementById("deliveryFee");
-      if(fee) fee.style.display = (modo === "Entrega") ? "block" : "none";
+      const bairro = $('bairro');
+      const isDelivery = modo === "Entrega";
+      if(bairro){
+        bairro.disabled = !isDelivery;
+        bairro.style.opacity = isDelivery ? '1' : '.72';
+      }
+      if(fee){
+        if(isDelivery){
+          const area = getSelectedDeliveryArea();
+          fee.style.display = "block";
+          if(area){
+            fee.innerHTML = area.perKm
+              ? `<b>Taxa:</b> ${formatMoneyBRL(area.fee)} por km. <span style="color:#60a5fa;font-weight:800">Valor calculado conforme a quilometragem.</span>`
+              : `<b>Taxa:</b> ${formatMoneyBRL(area.fee)} para ${area.name}.`;
+          }else{
+            fee.innerHTML = '<b>Aviso:</b> selecione o bairro/local para calcular a taxa.';
+          }
+        }else{
+          fee.style.display = "none";
+        }
+      }
+      updateOrderSummary();
     }
 
     function safeKey(flavor){
@@ -2092,6 +2703,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       const total = getMultiTotal();
       $("multiTotalHint").textContent = `Total selecionado: ${total} potinho${total === 1 ? "" : "s"}`;
       $("qtd").value = total;
+      updateOrderSummary();
     }
 
     function bindQtyInput(input){
@@ -2132,6 +2744,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       const nome = $("nome").value.trim();
       const tel = $("tel").value.trim();
       const modo = getModo();
+      const bairro = getSelectedDeliveryArea();
       const endereco = $("endereco").value.trim();
       const datahora = $("datahora").value.trim();
       const colher = $("colher").checked ? "Sim" : "Não";
@@ -2140,6 +2753,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       const obs = $("obs").value.trim();
 
       if(!nome) throw new Error("Informe o nome.");
+      if(modo === "Entrega" && !bairro) throw new Error("Entrega selecionada: escolha o bairro/local.");
       if(modo === "Entrega" && !endereco) throw new Error("Entrega selecionada: informe o endereço.");
       if(!adocamento) throw new Error("Selecione como você prefere receber o iogurte.");
 
@@ -2165,26 +2779,50 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
         saboresTxt = `${getFlavorDisplayName(selectedFlavor)}`.trim();
       }
 
+      const summary = getOrderSummaryData();
+      const deliveryAreaLabel = modo === 'Entrega'
+        ? summary.deliveryLabel
+        : 'Retirada no local';
+      const deliveryValueLabel = modo === 'Entrega'
+        ? summary.deliveryValueLabel
+        : formatMoneyBRL(0);
+      const totalValueLabel = summary.totalLabel;
+      const combo5RuleLine = (summary.productPricingRule === 'combo5_unit' && summary.productUnitCents > 0)
+        ? `ℹ️ *Regra aplicada:* acima de 5 unidades, cada potinho sai por ${formatCentsBRL(summary.productUnitCents)} (valor do combo 5).`
+        : null;
+
       const lines = [
         "Pedido — SIL GOURMET (250 g)",
         `Nome: ${nome}`,
         tel ? `WhatsApp: ${tel}` : null,
-        `Quantidade total: ${qtd}`,
-        `Sabor(es): ${saboresTxt}`,
-        `Retirada/Entrega: ${modo}`,
-        (modo === "Entrega") ? `Endereço: ${endereco}` : null,
-        (modo === "Entrega") ? "Taxa de entrega: confirmada no WhatsApp (conforme bairro)." : null,
-        datahora ? `Data/Hora: ${datahora}` : null,
-        `Colherzinha: ${colher}`,
-        `Chia: ${chia}`,
-        `Iogurte: ${adocamento}`,
+        '',
+        `🛒 *Produto/Combo:* ${summary.productLabel}`,
+        `💰 *Valor do produto:* ${summary.productValueLabel}`,
+        combo5RuleLine,
+        `📦 *Quantidade total:* ${qtd}`,
+        `🍓 *Sabor(es):* ${saboresTxt}`,
+        `🚚 *Retirada/Entrega:* ${modo}`,
+        `📍 *Bairro/local:* ${deliveryAreaLabel}`,
+        (modo === "Entrega") ? `🏠 *Endereço:* ${endereco}` : null,
+        `🚛 *Taxa de entrega:* ${deliveryValueLabel}`,
+        (modo === "Entrega" && summary.area && summary.area.perKm) ? `📏 *Cálculo rural:* entrega cobrada por quilômetro.` : null,
+        `🧾 *Total do pedido:* ${totalValueLabel}`,
+        '',
+        datahora ? `⏰ *Data/Hora:* ${datahora}` : null,
+        `🥄 *Colherzinha:* ${colher}`,
+        `🌱 *Chia:* ${chia}`,
+        `🥛 *Iogurte:* ${adocamento}`,
         (adocamento === "Natural com stévia") ? "Obs. adoçamento: stévia enviada separadamente; o iogurte vai natural." : null,
-        obs ? `Observações: ${obs}` : null,
-        "💳 Pagamento via PIX",
-        "Chave PIX: 69 99926-5256",
-        "Recebedor: Tiago Lima de Jesus",
-        "Envie o comprovante no WhatsApp após o pagamento."
-      ].filter(Boolean);
+        obs ? `📝 *Observações:* ${obs}` : null,
+        '',
+        '━━━━━━━━━━',
+        '💳 *PAGAMENTO VIA PIX*',
+        '*Chave PIX:* 69 99926-5256',
+        '*Recebedor:* Tiago Lima de Jesus',
+        '📎 *Confirmação do pedido:* após o envio do comprovante PIX, seu pedido será confirmado.',
+        (modo === "Entrega") ? '🚚 *Entrega:* o pedido só entra em rota após a confirmação do comprovante.' : null,
+        '━━━━━━━━━━'
+      ].filter(item => item !== null && item !== undefined);
 
       return lines.join("\n");
     }
@@ -2197,6 +2835,55 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       document.body.appendChild(a);
       a.click();
       a.remove();
+    }
+
+    function copyTextFallback(text){
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', 'readonly');
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      area.style.pointerEvents = 'none';
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      let ok = false;
+      try{ ok = document.execCommand('copy'); }catch(_e){ ok = false; }
+      area.remove();
+      return ok;
+    }
+
+    async function copyPixKey(){
+      const keyEl = $('pixKeyDisplay');
+      const btn = $('copyPixBtn');
+      const hint = $('pixCopyHint');
+      if(!keyEl || !btn || !hint) return;
+      const pixKey = (keyEl.textContent || '').trim();
+      if(!pixKey) return;
+
+      let copied = false;
+      try{
+        if(navigator.clipboard && window.isSecureContext){
+          await navigator.clipboard.writeText(pixKey);
+          copied = true;
+        }
+      }catch(_e){ copied = false; }
+
+      if(!copied) copied = copyTextFallback(pixKey);
+
+      if(copied){
+        const oldText = btn.textContent;
+        btn.textContent = 'PIX copiado';
+        btn.classList.add('isCopied');
+        hint.textContent = 'Chave copiada. Agora é só colar no app do banco.';
+        window.setTimeout(() => {
+          btn.textContent = oldText;
+          btn.classList.remove('isCopied');
+          hint.textContent = 'Toque para copiar a chave.';
+        }, 2200);
+      }else{
+        hint.textContent = 'Não deu para copiar automático. Segure na chave e copie manualmente.';
+      }
     }
 
     function sendWhatsApp(){
@@ -2229,6 +2916,7 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
     }
 
     document.addEventListener("DOMContentLoaded", ()=>{
+      populateDeliveryAreas();
       setupFlavorEditors();
       bindPriceEditors();
       bindPerUnitEditors();
@@ -2242,9 +2930,12 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
       document.querySelectorAll('input[name="modo"]').forEach(r=>{
         r.addEventListener("change", updateDeliveryUI);
       });
+      if($('bairro')) $('bairro').addEventListener('change', updateDeliveryUI);
       $("multiMode").checked = true;
       updateDeliveryUI();
+      updateOrderSummary();
       $("btn").addEventListener("click", (ev)=>{ ev.preventDefault(); sendWhatsApp(); });
+      if($("copyPixBtn")) $("copyPixBtn").addEventListener("click", copyPixKey);
       $("imgModalClose").addEventListener("click", closeImageModal);
       $("imgModal").addEventListener("click", (ev)=>{ if(ev.target.id === 'imgModal') closeImageModal(); });
       document.addEventListener("keydown", (ev)=>{ if(ev.key === 'Escape') closeImageModal(); });
