@@ -328,6 +328,16 @@ textarea{min-height:110px;resize:vertical}
 .steviaBlock{display:flex;flex-direction:column;gap:4px}
 .steviaBlock span{display:flex;align-items:flex-start;gap:10px}
 .steviaBlock small{display:block;color:#4d3c2d;font-size:12px;line-height:1.35;padding-left:28px}
+.specialFlavorSection{margin-top:18px}
+.specialFlavorSub{margin-top:6px}
+.specialFlavorEmpty{padding:12px 14px;border-radius:16px;border:1px dashed rgba(107,82,58,.28);background:rgba(255,248,238,.42);color:var(--muted);font-size:13px;line-height:1.45}
+.specialFlavorPriceLine{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;padding-left:2px}
+.specialPriceTag{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(95,113,65,.14);border:1px solid rgba(95,113,65,.28);color:var(--green);font-size:13px;font-weight:800;letter-spacing:.01em}
+.specialPriceInput{max-width:128px;padding:8px 10px;font-size:14px;border-radius:12px}
+body:not(.adminUnlocked) .specialPriceInput{display:none}
+body.adminUnlocked .specialPriceTag{display:none}
+body[data-theme="dark"] .specialFlavorEmpty, body[data-theme="premium"] .specialFlavorEmpty{background:rgba(24,19,15,.72);border-color:rgba(181,156,116,.16);color:#eadbc2}
+body[data-theme="dark"] .specialPriceTag, body[data-theme="premium"] .specialPriceTag{background:rgba(111,133,81,.14);border-color:rgba(142,165,96,.34);color:#eef7df}
 .imgModal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(17,12,8,.82);z-index:9999;padding:16px}
 .imgModal.show{display:flex}
 .imgModalBox{
@@ -1248,7 +1258,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 </div>
 <!-- MODO MÚLTIPLOS -->
 <div id="multiBox" style="display:none;margin-top:10px">
-<label>Quantidades por sabor</label>
+<label>Quantidades por sabor — tradicionais</label>
 <div class="hint">Coloque a quantidade em cada quadradinho (0 = não quero). O total é calculado automaticamente.</div>
 <div class="zoomHint">Clique na foto para visualizar melhor.</div>
 <div class="flavorsGrid" id="multiGrid" style="margin-top:10px">
@@ -1292,8 +1302,9 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 </div>
 <input class="qtySquare" id="qty_abacaxi" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
+<div id="regularExtraFlavorMount"></div>
 </div>
-<div class="hint" id="multiTotalHint" style="margin-top:8px">Total selecionado: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar mais produto</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último produto</button></div><div class="hint adminHint">Esse botão cria um novo espaço para foto, nome do produto, descrição e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
+<div id="specialFlavorSection" class="specialFlavorSection" style="display:none"><div class="sectionTitle">POTINHOS ESPECIAIS</div><div class="hint specialFlavorSub">Itens com preço próprio. A soma entra no mesmo total do pedido.</div><div class="flavorsGrid" id="specialFlavorGrid" style="margin-top:10px"></div><div class="hint" id="specialFlavorHint" style="margin-top:8px">Potinhos especiais selecionados: 0</div></div><div class="hint" id="multiTotalHint" style="margin-top:8px">Tradicionais: 0 | Especiais: 0 | Total: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="regularFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addRegularFlavorBtn" type="button">Adicionar potinho normal</button><button class="ghostBtn" id="removeRegularFlavorBtn" type="button">Remover último normal</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro dos tradicionais, seguindo o mesmo preço dos combos normais.</div><div class="sep" style="margin:14px 0"></div><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar potinho especial</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último especial</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro de Potinhos Especiais, com foto, nome, descrição, preço e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
 </div>
 </div><div class="sep"></div>
 <div class="row">
@@ -1328,6 +1339,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 <span class="summaryLabel">Valor do produto</span>
 <span class="summaryValue summaryValueProduct" id="summaryProductValue">R$ 0,00</span>
 </div>
+<div class="summaryHint" id="summaryProductSplit">Tradicionais: R$ 0,00 | Especiais: R$ 0,00</div>
 <div class="summaryRow">
 <span class="summaryLabel">Taxa de entrega</span>
 <span class="summaryValue summaryValueDelivery" id="summaryDeliveryValue">R$ 0,00</span>
@@ -1394,6 +1406,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
     const flavorStorageKey = "sil_gourmet_flavor_edits_v2";
     const extraFlavorStorageKey = "sil_gourmet_extra_flavors_v1";
+    const regularExtraFlavorStorageKey = "sil_gourmet_regular_extra_flavors_v1";
     const extraFlavorPanelStorageKey = "sil_gourmet_extra_flavor_panel_v1";
     const priceStorageKey = "sil_gourmet_price_edits_v2";
     const perUnitStorageKey = "sil_gourmet_per_unit_edits_v1";
@@ -1514,6 +1527,62 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     `)}`;
 
     const thumbInputs = {};
+    const IMAGE_DB_NAME = "sil_gourmet_images_db_v1";
+    const IMAGE_DB_STORE = "thumbs";
+
+    function openImageDb(){
+      return new Promise((resolve, reject)=>{
+        if(!window.indexedDB){
+          reject(new Error('indexedDB indisponível'));
+          return;
+        }
+        const req = indexedDB.open(IMAGE_DB_NAME, 1);
+        req.onupgradeneeded = ()=>{
+          const db = req.result;
+          if(!db.objectStoreNames.contains(IMAGE_DB_STORE)){
+            db.createObjectStore(IMAGE_DB_STORE);
+          }
+        };
+        req.onsuccess = ()=> resolve(req.result);
+        req.onerror = ()=> reject(req.error || new Error('Falha ao abrir banco de imagens'));
+      });
+    }
+
+    function idbGetThumb(key){
+      return openImageDb().then(db => new Promise((resolve, reject)=>{
+        const tx = db.transaction(IMAGE_DB_STORE, 'readonly');
+        const store = tx.objectStore(IMAGE_DB_STORE);
+        const req = store.get(String(key || ''));
+        req.onsuccess = ()=> resolve(typeof req.result === 'string' ? req.result : '');
+        req.onerror = ()=> reject(req.error || new Error('Falha ao ler imagem'));
+        tx.oncomplete = ()=> db.close();
+        tx.onerror = ()=> db.close();
+      })).catch(()=> '');
+    }
+
+    function idbSetThumb(key, value){
+      return openImageDb().then(db => new Promise((resolve, reject)=>{
+        const tx = db.transaction(IMAGE_DB_STORE, 'readwrite');
+        const store = tx.objectStore(IMAGE_DB_STORE);
+        const req = store.put(String(value || ''), String(key || ''));
+        req.onsuccess = ()=> resolve(true);
+        req.onerror = ()=> reject(req.error || new Error('Falha ao salvar imagem'));
+        tx.oncomplete = ()=> db.close();
+        tx.onerror = ()=> db.close();
+      })).catch(()=> false);
+    }
+
+    function idbDeleteThumb(key){
+      return openImageDb().then(db => new Promise((resolve)=>{
+        const tx = db.transaction(IMAGE_DB_STORE, 'readwrite');
+        const store = tx.objectStore(IMAGE_DB_STORE);
+        const req = store.delete(String(key || ''));
+        req.onsuccess = ()=> resolve(true);
+        req.onerror = ()=> resolve(false);
+        tx.oncomplete = ()=> db.close();
+        tx.onerror = ()=> db.close();
+      })).catch(()=> false);
+    }
 
     function defaultFlavorState(){
       return {
@@ -1552,6 +1621,24 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           key: String(item.key || `extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
           name: String(item.name || `Novo produto ${idx+1}`),
           desc: String(item.desc || "produto personalizado"),
+          img: String(item.img || ""),
+          price: normalizePriceInput(String(item.price || defaultPrices.single)) || defaultPrices.single
+        }));
+      }catch(e){
+        return [];
+      }
+    }
+
+    function getRegularExtraFlavors(){
+      try{
+        const raw = localStorage.getItem(regularExtraFlavorStorageKey);
+        if(!raw) return [];
+        const list = JSON.parse(raw);
+        if(!Array.isArray(list)) return [];
+        return list.map((item, idx) => ({
+          key: String(item.key || `regular_extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
+          name: String(item.name || `Tradicional ${idx+1}`),
+          desc: String(item.desc || "sabor tradicional"),
           img: String(item.img || "")
         }));
       }catch(e){
@@ -1561,13 +1648,43 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
     let flavorState = getFlavorState();
     let extraFlavors = getExtraFlavors();
+    let regularExtraFlavors = getRegularExtraFlavors();
 
     function saveFlavorState(){
       try{ localStorage.setItem(flavorStorageKey, JSON.stringify(flavorState)); }catch(e){}
     }
 
+    function serializeExtraFlavorsForStorage(){
+      return extraFlavors.map(item => ({
+        key: String(item.key || ''),
+        name: String(item.name || ''),
+        desc: String(item.desc || ''),
+        price: normalizePriceInput(String(item.price || defaultPrices.single)) || defaultPrices.single
+      }));
+    }
+
+    function serializeRegularExtraFlavorsForStorage(){
+      return regularExtraFlavors.map(item => ({
+        key: String(item.key || ''),
+        name: String(item.name || ''),
+        desc: String(item.desc || '')
+      }));
+    }
+
     function saveExtraFlavors(){
-      try{ localStorage.setItem(extraFlavorStorageKey, JSON.stringify(extraFlavors)); }catch(e){}
+      try{ localStorage.setItem(extraFlavorStorageKey, JSON.stringify(serializeExtraFlavorsForStorage())); }catch(e){}
+    }
+
+    function saveRegularExtraFlavors(){
+      try{ localStorage.setItem(regularExtraFlavorStorageKey, JSON.stringify(serializeRegularExtraFlavorsForStorage())); }catch(e){}
+    }
+
+    function isRegularExtraFlavor(flavor){
+      return regularExtraFlavors.some(item => item.key === flavor);
+    }
+
+    function getRegularExtraFlavor(flavor){
+      return regularExtraFlavors.find(item => item.key === flavor) || null;
     }
 
     function isExtraFlavor(flavor){
@@ -1588,6 +1705,18 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       if(changed) saveExtraFlavors();
     }
 
+    function setRegularExtraFlavorImage(flavor, dataUrl){
+      let changed = false;
+      regularExtraFlavors = regularExtraFlavors.map(item => {
+        if(item.key !== flavor) return item;
+        changed = true;
+        return { ...item, img: dataUrl || '' };
+      });
+      if(changed){
+        saveRegularExtraFlavors();
+      }
+    }
+
     function getQtyId(flavor){
       return qtyIds[flavor] || `qty_${String(flavor).replace(/[^a-zA-Z0-9_-]/g, '_')}`;
     }
@@ -1601,6 +1730,10 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         const extra = getExtraFlavor(flavor);
         return extra && extra.name ? extra.name.trim() : "Novo produto";
       }
+      if(isRegularExtraFlavor(flavor)){
+        const extra = getRegularExtraFlavor(flavor);
+        return extra && extra.name ? extra.name.trim() : "Novo tradicional";
+      }
       return (flavorState[flavor] && flavorState[flavor].name) ? flavorState[flavor].name.trim() : flavor;
     }
 
@@ -1609,20 +1742,46 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         const extra = getExtraFlavor(flavor);
         return extra && extra.desc ? extra.desc.trim() : "produto personalizado";
       }
+      if(isRegularExtraFlavor(flavor)){
+        const extra = getRegularExtraFlavor(flavor);
+        return extra && extra.desc ? extra.desc.trim() : "sabor tradicional";
+      }
       if(flavorState[flavor] && flavorState[flavor].desc) return flavorState[flavor].desc.trim();
       if(flavorMeta[flavor] && flavorMeta[flavor].desc) return flavorMeta[flavor].desc;
       return "";
     }
 
+    function getExtraFlavorPrice(flavor){
+      const extra = getExtraFlavor(flavor);
+      return normalizePriceInput(String(extra && extra.price ? extra.price : defaultPrices.single)) || defaultPrices.single;
+    }
+
+    function getExtraFlavorUnitCents(flavor){
+      return priceToCents(getExtraFlavorPrice(flavor));
+    }
+
+    function getFlavorFieldFallback(flavor, type){
+      if(isExtraFlavor(flavor)) return type === 'name' ? 'Novo produto' : 'produto personalizado';
+      if(isRegularExtraFlavor(flavor)) return type === 'name' ? 'Novo tradicional' : 'sabor tradicional';
+      if(type === 'name') return flavor;
+      return flavorMeta[flavor] ? flavorMeta[flavor].desc : '';
+    }
+
     function applyFlavorEdits(){
-      const allFlavors = BASE_FLAVORS.concat(extraFlavors.map(item => item.key));
+      const allFlavors = BASE_FLAVORS.concat(regularExtraFlavors.map(item => item.key), extraFlavors.map(item => item.key));
       for(const flavor of allFlavors){
         const safe = safeSelAttr(flavor);
         const name = getFlavorDisplayName(flavor) || flavor;
         const desc = getFlavorDisplayDesc(flavor);
 
-        document.querySelectorAll(`[data-edit-name="${safe}"]`).forEach(el=>{ if(el.value !== name) el.value = name; });
-        document.querySelectorAll(`[data-edit-desc="${safe}"]`).forEach(el=>{ if(el.value !== desc) el.value = desc; });
+        document.querySelectorAll(`[data-edit-name="${safe}"]`).forEach(el=>{
+          if(document.activeElement === el) return;
+          if(el.value !== name) el.value = name;
+        });
+        document.querySelectorAll(`[data-edit-desc="${safe}"]`).forEach(el=>{
+          if(document.activeElement === el) return;
+          if(el.value !== desc) el.value = desc;
+        });
 
         document.querySelectorAll(`#singleGrid .flavorCard[data-sflavor="${safe}"] .flavorName`).forEach(el=>{ el.textContent = name; });
         document.querySelectorAll(`#singleGrid .flavorCard[data-sflavor="${safe}"] .flavorNote`).forEach(el=>{ el.textContent = desc; });
@@ -1636,32 +1795,84 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     function bindFlavorEditorInput(input, type){
       if(!input || input.dataset.boundEditor === '1') return;
       input.dataset.boundEditor = '1';
-      input.addEventListener('input', ()=>{
+
+      const persistFlavorValue = (fallbackOnEmpty = false)=>{
         const flavor = input.getAttribute(type === 'name' ? 'data-edit-name' : 'data-edit-desc');
-        const value = input.value.trim();
+        const rawValue = input.value;
+        const value = rawValue.trim();
+        const finalValue = fallbackOnEmpty && !value ? getFlavorFieldFallback(flavor, type) : value;
+
         if(isExtraFlavor(flavor)){
           extraFlavors = extraFlavors.map(item => {
             if(item.key !== flavor) return item;
             return {
               ...item,
-              [type]: value || (type === 'name' ? 'Novo produto' : 'produto personalizado')
+              [type]: finalValue
             };
           });
           saveExtraFlavors();
+        }else if(isRegularExtraFlavor(flavor)){
+          regularExtraFlavors = regularExtraFlavors.map(item => {
+            if(item.key !== flavor) return item;
+            return {
+              ...item,
+              [type]: finalValue
+            };
+          });
+          saveRegularExtraFlavors();
         }else{
           flavorState[flavor] = flavorState[flavor] || {};
-          if(type === 'name') flavorState[flavor].name = value || flavor;
-          if(type === 'desc') flavorState[flavor].desc = value || (flavorMeta[flavor] ? flavorMeta[flavor].desc : '');
+          flavorState[flavor][type] = finalValue;
           saveFlavorState();
         }
+
+        if(fallbackOnEmpty && !value){
+          input.value = finalValue;
+        }
         applyFlavorEdits();
-      });
+      };
+
+      input.addEventListener('input', ()=> persistFlavorValue(false));
+      input.addEventListener('blur', ()=> persistFlavorValue(true));
     }
 
     function setupFlavorEditors(){
       document.querySelectorAll('[data-edit-name]').forEach(input=> bindFlavorEditorInput(input, 'name'));
       document.querySelectorAll('[data-edit-desc]').forEach(input=> bindFlavorEditorInput(input, 'desc'));
       applyFlavorEdits();
+    }
+
+
+    function updateSpecialFlavorCardPrice(flavor){
+      const unitCents = getExtraFlavorUnitCents(flavor);
+      document.querySelectorAll(`#specialFlavorGrid .flavorCard[data-mflavor="${safeSelAttr(flavor)}"] .specialPriceTag`).forEach(el=>{
+        el.textContent = `${formatCentsBRL(unitCents)} cada`;
+      });
+    }
+
+    function bindSpecialPriceInput(input){
+      if(!input || input.dataset.boundSpecialPrice === '1') return;
+      input.dataset.boundSpecialPrice = '1';
+
+      const persistSpecialPrice = (fallbackOnEmpty = false)=>{
+        const flavor = input.getAttribute('data-edit-price');
+        const normalized = normalizePriceInput(input.value);
+        const finalValue = fallbackOnEmpty && !normalized ? defaultPrices.single : normalized;
+        extraFlavors = extraFlavors.map(item => item.key === flavor ? { ...item, price: finalValue } : item);
+        saveExtraFlavors();
+        if(fallbackOnEmpty && !normalized){
+          input.value = finalValue;
+        }
+        updateSpecialFlavorCardPrice(flavor);
+        updateOrderSummary();
+      };
+
+      input.addEventListener('input', ()=> persistSpecialPrice(false));
+      input.addEventListener('blur', ()=> persistSpecialPrice(true));
+    }
+
+    function setupSpecialPriceEditors(){
+      document.querySelectorAll('[data-edit-price]').forEach(bindSpecialPriceInput);
     }
 
     function getPriceState(){
@@ -2144,7 +2355,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
     function setAdminControlsEnabled(enabled){
       document.body.classList.toggle('adminUnlocked', !!enabled);
-      document.querySelectorAll('.flavorEditInput, .flavorEditDesc, #priceEditorGrid input, #perUnitEditorGrid input, #extraComboEditorGrid input').forEach(input=>{
+      document.querySelectorAll('.flavorEditInput, .flavorEditDesc, [data-edit-price], #priceEditorGrid input, #perUnitEditorGrid input, #extraComboEditorGrid input').forEach(input=>{
         if(enabled){
           input.removeAttribute('readonly');
           input.removeAttribute('disabled');
@@ -2156,7 +2367,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           input.blur();
         }
       });
-      ['addExtraFlavorBtn','removeExtraFlavorBtn','addExtraComboBtn','removeExtraComboBtn'].forEach(id=>{
+      ['addRegularFlavorBtn','removeRegularFlavorBtn','addExtraFlavorBtn','removeExtraFlavorBtn','addExtraComboBtn','removeExtraComboBtn'].forEach(id=>{
         const btn = $(id);
         if(btn) btn.disabled = !enabled;
       });
@@ -2165,6 +2376,10 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         const label = getFlavorDisplayName(flavor);
         img.title = enabled ? `Toque para adicionar ou trocar a foto de ${label}` : label;
       });
+      const section = $('specialFlavorSection');
+      if(section) section.style.display = (extraFlavors.length || enabled) ? 'block' : 'none';
+      const regularRemoveBtn = $('removeRegularFlavorBtn');
+      if(regularRemoveBtn) regularRemoveBtn.style.display = regularExtraFlavors.length ? 'inline-flex' : 'none';
     }
 
 
@@ -2261,16 +2476,30 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
     function getOrderSummaryData(){
       const modo = getModo();
-      const qtd = $('multiMode').checked ? getMultiTotal() : asInt($('qtd').value);
-      const product = getPriceForQuantity(qtd);
+      const regularQty = $('multiMode').checked ? getRegularMultiTotal() : asInt($('qtd').value);
+      const specialSelections = getSpecialFlavorSelections();
+      const specialQty = specialSelections.reduce((sum, item)=> sum + item.qty, 0);
+      const qtd = regularQty + specialQty;
+      const regularProduct = getPriceForQuantity(regularQty);
+      const specialProductCents = specialSelections.reduce((sum, item)=> sum + item.totalCents, 0);
+      const productCents = regularProduct.cents + specialProductCents;
       const area = getSelectedDeliveryArea();
       const isDelivery = modo === 'Entrega';
+
+      let productLabel = 'Selecione os potinhos';
+      if(regularQty > 0 && specialQty > 0){
+        productLabel = `${regularQty} tradicional(is) + ${specialQty} especial(is)`;
+      }else if(regularQty > 0){
+        productLabel = regularProduct.label;
+      }else if(specialQty > 0){
+        productLabel = `${specialQty} especial(is)`;
+      }
 
       let deliveryLabel = 'Retirada no local';
       let deliveryValueLabel = formatMoneyBRL(0);
       let deliveryCents = 0;
-      let totalLabel = product.cents > 0 ? formatCentsBRL(product.cents) : formatMoneyBRL(0);
-      let totalCents = product.cents;
+      let totalLabel = productCents > 0 ? formatCentsBRL(productCents) : formatMoneyBRL(0);
+      let totalCents = productCents;
       let totalKnown = true;
 
       if(isDelivery){
@@ -2283,13 +2512,13 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           }else{
             deliveryCents = Math.round((Number(area.fee) || 0) * 100);
             deliveryValueLabel = formatCentsBRL(deliveryCents);
-            totalCents = product.cents + deliveryCents;
+            totalCents = productCents + deliveryCents;
             totalLabel = formatCentsBRL(totalCents);
           }
         }else{
           deliveryLabel = 'Selecione o bairro/local';
           deliveryValueLabel = '—';
-          totalLabel = product.cents > 0 ? 'Selecione o bairro' : formatMoneyBRL(0);
+          totalLabel = productCents > 0 ? 'Selecione o bairro' : formatMoneyBRL(0);
           totalKnown = false;
         }
       }
@@ -2297,12 +2526,17 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       return {
         qtd,
         mode: modo,
-        productLabel: product.qty > 0 ? product.label : 'Selecione os potinhos',
-        productValueLabel: product.cents > 0 ? formatCentsBRL(product.cents) : formatMoneyBRL(0),
-        productCents: product.cents,
-        productExactCombo: product.exactCombo,
-        productPricingRule: product.pricingRule || '',
-        productUnitCents: product.unitCents || 0,
+        productLabel,
+        productValueLabel: productCents > 0 ? formatCentsBRL(productCents) : formatMoneyBRL(0),
+        productCents,
+        productExactCombo: regularProduct.exactCombo,
+        productPricingRule: regularProduct.pricingRule || '',
+        productUnitCents: regularProduct.unitCents || 0,
+        regularQty,
+        specialQty,
+        regularProductCents: regularProduct.cents,
+        specialProductCents,
+        specialSelections,
         deliveryLabel,
         deliveryValueLabel,
         deliveryCents,
@@ -2318,23 +2552,30 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       const data = getOrderSummaryData();
       const productLabel = $('summaryProductLabel');
       const productValue = $('summaryProductValue');
+      const productSplit = $('summaryProductSplit');
       const deliveryValue = $('summaryDeliveryValue');
       const totalValue = $('summaryTotalValue');
       const deliveryArea = $('summaryDeliveryArea');
       if(productLabel) productLabel.textContent = data.productLabel;
       if(productValue) productValue.textContent = data.productValueLabel;
+      if(productSplit){
+        productSplit.innerHTML = `<strong>Tradicionais:</strong> ${formatCentsBRL(data.regularProductCents)} | <strong>Especiais:</strong> ${formatCentsBRL(data.specialProductCents)}`;
+      }
       if(deliveryValue) deliveryValue.textContent = data.deliveryValueLabel;
       if(totalValue) totalValue.textContent = data.totalLabel;
       if(deliveryArea){
-        const combo5RuleHtml = (data.productPricingRule === 'combo5_unit' && data.productUnitCents > 0)
-          ? `<br><strong>Regra do preço:</strong> acima de 5 unidades, cada potinho sai por ${formatCentsBRL(data.productUnitCents)} (valor do combo 5).`
+        const combo5RuleHtml = (data.productPricingRule === 'combo5_unit' && data.productUnitCents > 0 && data.regularQty > 0)
+          ? `<br><strong>Regra dos tradicionais:</strong> acima de 5 unidades, cada potinho sai por ${formatCentsBRL(data.productUnitCents)} (valor do combo 5).`
+          : '';
+        const specialRuleHtml = data.specialQty > 0
+          ? `<br><strong>Especiais:</strong> ${data.specialQty} item(ns) com preço próprio.`
           : '';
         if(data.isDelivery){
           deliveryArea.innerHTML = data.area
-            ? `<strong>Bairro/local:</strong> ${data.deliveryLabel}${combo5RuleHtml}`
-            : `<strong>Bairro/local:</strong> selecione para calcular a taxa.${combo5RuleHtml}`;
+            ? `<strong>Bairro/local:</strong> ${data.deliveryLabel}${combo5RuleHtml}${specialRuleHtml}`
+            : `<strong>Bairro/local:</strong> selecione para calcular a taxa.${combo5RuleHtml}${specialRuleHtml}`;
         }else{
-          deliveryArea.innerHTML = `Retirada no local.${combo5RuleHtml}`;
+          deliveryArea.innerHTML = `Retirada no local.${combo5RuleHtml}${specialRuleHtml}`;
         }
       }
     }
@@ -2410,17 +2651,92 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       return `sil_gourmet_img_${flavor}`;
     }
 
+    function migrateLegacyExtraFlavorImages(){
+      let changedRegular = false;
+      let changedSpecial = false;
+
+      regularExtraFlavors = regularExtraFlavors.map(item => {
+        let stored = '';
+        try{ stored = localStorage.getItem(safeKey(item.key)) || ''; }catch(e){}
+        const inlineImg = String(item.img || '');
+        const finalImg = stored || inlineImg;
+        if(finalImg){
+          try{ if(!stored) localStorage.setItem(safeKey(item.key), finalImg); }catch(e){}
+          idbSetThumb(safeKey(item.key), finalImg);
+        }
+        if(inlineImg) changedRegular = true;
+        return { ...item, img: finalImg || '' };
+      });
+
+      extraFlavors = extraFlavors.map(item => {
+        let stored = '';
+        try{ stored = localStorage.getItem(safeKey(item.key)) || ''; }catch(e){}
+        const inlineImg = String(item.img || '');
+        const finalImg = stored || inlineImg;
+        if(finalImg){
+          try{ if(!stored) localStorage.setItem(safeKey(item.key), finalImg); }catch(e){}
+          idbSetThumb(safeKey(item.key), finalImg);
+        }
+        if(inlineImg) changedSpecial = true;
+        return { ...item, img: finalImg || '' };
+      });
+
+      if(changedRegular) saveRegularExtraFlavors();
+      if(changedSpecial) saveExtraFlavors();
+    }
+
+    migrateLegacyExtraFlavorImages();
+
     function getSavedThumb(flavor){
+      try{
+        const direct = localStorage.getItem(safeKey(flavor));
+        if(direct) return direct;
+      }catch(e){}
       if(isExtraFlavor(flavor)){
         const extra = getExtraFlavor(flavor);
         if(extra && extra.img) return extra.img;
       }
-      try{ return localStorage.getItem(safeKey(flavor)); }catch(e){ return null; }
+      if(isRegularExtraFlavor(flavor)){
+        const extra = getRegularExtraFlavor(flavor);
+        if(extra && extra.img) return extra.img;
+      }
+      return null;
+    }
+
+    async function getSavedThumbAsync(flavor){
+      const immediate = getSavedThumb(flavor);
+      if(immediate) return immediate;
+      const saved = await idbGetThumb(safeKey(flavor));
+      if(saved){
+        if(isExtraFlavor(flavor)){
+          setExtraFlavorImage(flavor, saved);
+        }else if(isRegularExtraFlavor(flavor)){
+          setRegularExtraFlavorImage(flavor, saved);
+        }else{
+          try{ localStorage.setItem(safeKey(flavor), saved); }catch(e){}
+        }
+      }
+      return saved || '';
     }
 
     function saveThumb(flavor, dataUrl){
-      if(isExtraFlavor(flavor)) setExtraFlavorImage(flavor, dataUrl);
-      try{ localStorage.setItem(safeKey(flavor), dataUrl); }catch(e){}
+      const finalData = String(dataUrl || '');
+      idbSetThumb(safeKey(flavor), finalData);
+      try{
+        if(finalData){
+          localStorage.setItem(safeKey(flavor), finalData);
+        }else{
+          localStorage.removeItem(safeKey(flavor));
+        }
+      }catch(e){}
+      if(isExtraFlavor(flavor)){
+        setExtraFlavorImage(flavor, finalData);
+        return;
+      }
+      if(isRegularExtraFlavor(flavor)){
+        setRegularExtraFlavorImage(flavor, finalData);
+        return;
+      }
     }
 
     function applyThumb(flavor, src){
@@ -2479,12 +2795,14 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           const img = new Image();
           img.onload = ()=>{
             const canvas = document.createElement('canvas');
-            const maxSide = 900;
+            const maxSide = 720;
             const ratio = Math.min(1, maxSide / Math.max(img.width || 1, img.height || 1));
             canvas.width = Math.max(1, Math.round((img.width || 1) * ratio));
             canvas.height = Math.max(1, Math.round((img.height || 1) * ratio));
             const ctx = canvas.getContext('2d');
             if(ctx){
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
               ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
               const compressed = canvas.toDataURL('image/jpeg', 0.82);
               saveThumb(flavor, compressed || rawDataUrl);
@@ -2509,20 +2827,23 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
     function ensureThumbHandler(flavor){
       if(!thumbInputs[flavor]) thumbInputs[flavor] = wireThumbInput(flavor);
-      const saved = getSavedThumb(flavor);
-      if(saved){
-        applyThumb(flavor, saved);
-        return;
-      }
-      const fallback = flavorMeta[flavor] ? flavorMeta[flavor].img : "";
-      if(fallback){
-        const tester = new Image();
-        tester.onload = ()=> applyThumb(flavor, fallback);
-        tester.onerror = ()=> applyThumb(flavor, PLACEHOLDER_SVG);
-        tester.src = fallback;
+      const immediate = getSavedThumb(flavor);
+      if(immediate){
+        applyThumb(flavor, immediate);
       }else{
-        applyThumb(flavor, PLACEHOLDER_SVG);
+        const fallback = flavorMeta[flavor] ? flavorMeta[flavor].img : "";
+        if(fallback){
+          const tester = new Image();
+          tester.onload = ()=> applyThumb(flavor, fallback);
+          tester.onerror = ()=> applyThumb(flavor, PLACEHOLDER_SVG);
+          tester.src = fallback;
+        }else{
+          applyThumb(flavor, PLACEHOLDER_SVG);
+        }
       }
+      getSavedThumbAsync(flavor).then(saved => {
+        if(saved) applyThumb(flavor, saved);
+      }).catch(()=>{});
     }
 
     function bindThumbClicks(){
@@ -2542,7 +2863,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function setThumbs(){
-      BASE_FLAVORS.concat(extraFlavors.map(item => item.key)).forEach(ensureThumbHandler);
+      BASE_FLAVORS.concat(regularExtraFlavors.map(item => item.key), extraFlavors.map(item => item.key)).forEach(ensureThumbHandler);
       bindThumbClicks();
     }
 
@@ -2619,6 +2940,16 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       setExtraFlavorPanel(false);
     }
 
+    function createRegularExtraFlavorKey(){
+      let n = regularExtraFlavors.length + 1;
+      let key = `regular_extra_${n}`;
+      while(regularExtraFlavors.some(item => item.key === key)){
+        n += 1;
+        key = `regular_extra_${n}`;
+      }
+      return key;
+    }
+
     function createExtraFlavorKey(){
       let n = extraFlavors.length + 1;
       let key = `extra_${n}`;
@@ -2629,32 +2960,31 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       return key;
     }
 
-    function renderExtraFlavors(){
-      const grid = $('multiGrid');
-      if(!grid) return;
-      grid.querySelectorAll('.extraFlavorCard').forEach(el => el.remove());
+    function renderRegularExtraFlavors(){
+      const mount = $('regularExtraFlavorMount');
+      if(!mount) return;
+      mount.innerHTML = '';
 
-      extraFlavors.forEach((item)=>{
+      regularExtraFlavors.forEach((item)=>{
         const card = document.createElement('div');
-        card.className = 'flavorCard extraFlavorCard';
+        card.className = 'flavorCard extraFlavorCard regularExtraFlavorCard';
         card.setAttribute('data-mflavor', item.key);
         card.innerHTML = `
           <div class="flavorLeft">
-            <img alt="${item.name}" class="flavorThumb" data-thumb="${item.key}" src="${item.img || PLACEHOLDER_SVG}"/>
+            <img alt="${item.name}" class="flavorThumb" data-thumb="${item.key}" src="${getSavedThumb(item.key) || item.img || PLACEHOLDER_SVG}"/>
             <div class="flavorTextEdit">
-              <input class="flavorEditInput" data-edit-name="${item.key}" value="${item.name}" placeholder="Nome do produto"/>
+              <input class="flavorEditInput" data-edit-name="${item.key}" value="${item.name}" placeholder="Nome do sabor"/>
               <input class="flavorEditDesc" data-edit-desc="${item.key}" value="${item.desc}" placeholder="Descrição"/>
             </div>
           </div>
           <input class="qtySquare" id="${getQtyId(item.key)}" inputmode="numeric" min="0" step="1" type="number" value="0"/>
         `;
-        grid.appendChild(card);
+        mount.appendChild(card);
       });
 
-      const removeBtn = $('removeExtraFlavorBtn');
-      if(removeBtn) removeBtn.style.display = extraFlavors.length ? 'inline-flex' : 'none';
+      const removeBtn = $('removeRegularFlavorBtn');
+      if(removeBtn) removeBtn.style.display = regularExtraFlavors.length ? 'inline-flex' : 'none';
 
-      setupExtraFlavorPanelToggle();
       setupFlavorEditors();
       setThumbs();
       setAdminControlsEnabled(getExtraFlavorPanelState());
@@ -2662,13 +2992,86 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       updateMultiUI();
     }
 
+    function renderExtraFlavors(){
+      const grid = $('specialFlavorGrid');
+      const section = $('specialFlavorSection');
+      if(!grid || !section) return;
+      grid.innerHTML = '';
+
+      if(!extraFlavors.length){
+        const empty = document.createElement('div');
+        empty.className = 'specialFlavorEmpty';
+        empty.textContent = getExtraFlavorPanelState()
+          ? 'Nenhum potinho especial cadastrado ainda. Use o botão secreto para adicionar.'
+          : 'Sem potinhos especiais disponíveis no momento.';
+        grid.appendChild(empty);
+      }
+
+      extraFlavors.forEach((item)=>{
+        const card = document.createElement('div');
+        card.className = 'flavorCard extraFlavorCard specialFlavorCard';
+        card.setAttribute('data-mflavor', item.key);
+        card.innerHTML = `
+          <div class="flavorLeft">
+            <img alt="${item.name}" class="flavorThumb" data-thumb="${item.key}" src="${getSavedThumb(item.key) || item.img || PLACEHOLDER_SVG}"/>
+            <div class="flavorTextEdit">
+              <input class="flavorEditInput" data-edit-name="${item.key}" value="${item.name}" placeholder="Nome do produto"/>
+              <input class="flavorEditDesc" data-edit-desc="${item.key}" value="${item.desc}" placeholder="Descrição"/>
+              <div class="specialFlavorPriceLine">
+                <span class="specialPriceTag">${formatCentsBRL(getExtraFlavorUnitCents(item.key))} cada</span>
+                <input class="specialPriceInput" data-edit-price="${item.key}" inputmode="decimal" placeholder="Preço" type="text" value="${getExtraFlavorPrice(item.key)}"/>
+              </div>
+            </div>
+          </div>
+          <input class="qtySquare" id="${getQtyId(item.key)}" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+        `;
+        grid.appendChild(card);
+      });
+
+      section.style.display = (extraFlavors.length || getExtraFlavorPanelState()) ? 'block' : 'none';
+
+      const removeBtn = $('removeExtraFlavorBtn');
+      if(removeBtn) removeBtn.style.display = extraFlavors.length ? 'inline-flex' : 'none';
+
+      setupExtraFlavorPanelToggle();
+      setupFlavorEditors();
+      setupSpecialPriceEditors();
+      setThumbs();
+      setAdminControlsEnabled(getExtraFlavorPanelState());
+      refreshQtyBindings();
+      updateMultiUI();
+    }
+
+    function addRegularExtraFlavor(){
+      const key = createRegularExtraFlavorKey();
+      regularExtraFlavors.push({
+        key,
+        name: `Tradicional ${regularExtraFlavors.length + 1}`,
+        desc: 'sabor tradicional',
+        img: ''
+      });
+      saveRegularExtraFlavors();
+      renderRegularExtraFlavors();
+    }
+
+    function removeLastRegularExtraFlavor(){
+      if(!regularExtraFlavors.length) return;
+      const last = regularExtraFlavors[regularExtraFlavors.length - 1];
+      try{ localStorage.removeItem(safeKey(last.key)); }catch(e){}
+      idbDeleteThumb(safeKey(last.key));
+      regularExtraFlavors = regularExtraFlavors.slice(0, -1).map(item => ({ ...item }));
+      saveRegularExtraFlavors();
+      renderRegularExtraFlavors();
+    }
+
     function addExtraFlavor(){
       const key = createExtraFlavorKey();
       extraFlavors.push({
         key,
-        name: `Novo produto ${extraFlavors.length + 1}`,
+        name: `Especial ${extraFlavors.length + 1}`,
         desc: 'produto personalizado',
-        img: ''
+        img: '',
+        price: defaultPrices.single
       });
       saveExtraFlavors();
       renderExtraFlavors();
@@ -2678,12 +3081,13 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       if(!extraFlavors.length) return;
       const last = extraFlavors[extraFlavors.length - 1];
       try{ localStorage.removeItem(safeKey(last.key)); }catch(e){}
+      idbDeleteThumb(safeKey(last.key));
       extraFlavors = extraFlavors.slice(0, -1).map(item => ({ ...item }));
       saveExtraFlavors();
       renderExtraFlavors();
     }
 
-    function getMultiTotal(){
+    function getRegularMultiTotal(){
       let total = 0;
       document.querySelectorAll('#multiGrid .qtySquare').forEach(el=>{
         total += asInt(el.value);
@@ -2691,15 +3095,45 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       return total;
     }
 
+    function getSpecialFlavorSelections(){
+      const selections = [];
+      document.querySelectorAll('#specialFlavorGrid .flavorCard[data-mflavor]').forEach(card=>{
+        const flavor = card.getAttribute('data-mflavor');
+        const input = card.querySelector('.qtySquare');
+        const qty = input ? asInt(input.value) : 0;
+        if(qty <= 0) return;
+        const unitCents = getExtraFlavorUnitCents(flavor);
+        selections.push({
+          flavor,
+          qty,
+          name: getFlavorDisplayName(flavor),
+          unitCents,
+          totalCents: unitCents * qty
+        });
+      });
+      return selections;
+    }
+
+    function getSpecialMultiTotal(){
+      return getSpecialFlavorSelections().reduce((sum, item)=> sum + item.qty, 0);
+    }
+
+    function getMultiTotal(){
+      return getRegularMultiTotal() + getSpecialMultiTotal();
+    }
+
     function updateMultiUI(){
-      document.querySelectorAll('#multiGrid .flavorCard[data-mflavor]').forEach(card=>{
+      document.querySelectorAll('#multiGrid .flavorCard[data-mflavor], #specialFlavorGrid .flavorCard[data-mflavor]').forEach(card=>{
         const input = card.querySelector('.qtySquare');
         if(!input) return;
         input.value = clampInt(asInt(input.value));
         card.classList.toggle('qtyActive', asInt(input.value) > 0);
       });
-      const total = getMultiTotal();
-      $("multiTotalHint").textContent = `Total selecionado: ${total} potinho${total === 1 ? "" : "s"}`;
+      const regularTotal = getRegularMultiTotal();
+      const specialTotal = getSpecialMultiTotal();
+      const total = regularTotal + specialTotal;
+      if($("multiTotalHint")) $("multiTotalHint").textContent = `Tradicionais: ${regularTotal} | Especiais: ${specialTotal} | Total: ${total} potinho${total === 1 ? "" : "s"}`;
+      if($("specialFlavorHint")) $("specialFlavorHint").textContent = `Potinhos especiais selecionados: ${specialTotal}`;
       $("qtd").value = total;
       updateOrderSummary();
     }
@@ -2716,7 +3150,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function refreshQtyBindings(){
-      document.querySelectorAll('#multiGrid .qtySquare').forEach(bindQtyInput);
+      document.querySelectorAll('#multiGrid .qtySquare, #specialFlavorGrid .qtySquare').forEach(bindQtyInput);
     }
 
     function setMultiMode(on){
@@ -2758,6 +3192,8 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       let qtd = asInt($("qtd").value);
       let saboresTxt = "";
 
+      let saboresEspeciaisTxt = "";
+
       if(multi){
         updateMultiUI();
         qtd = getMultiTotal();
@@ -2769,7 +3205,9 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           const v = input ? asInt(input.value) : 0;
           if(v > 0) parts.push(`${getFlavorDisplayName(flavor)} x${v}`);
         });
+        const specialParts = getSpecialFlavorSelections().map(item => `${item.name} x${item.qty} (${formatCentsBRL(item.unitCents)} cada)`);
         saboresTxt = parts.join(" | ");
+        saboresEspeciaisTxt = specialParts.join(" | ");
       }else{
         qtd = asInt($("qtd").value);
         if(qtd <= 0) throw new Error("Informe a quantidade total (potinhos).");
@@ -2784,9 +3222,13 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         ? summary.deliveryValueLabel
         : formatMoneyBRL(0);
       const totalValueLabel = summary.totalLabel;
-      const combo5RuleLine = (summary.productPricingRule === 'combo5_unit' && summary.productUnitCents > 0)
-        ? `ℹ️ *Regra aplicada:* acima de 5 unidades, cada potinho sai por ${formatCentsBRL(summary.productUnitCents)} (valor do combo 5).`
+      const combo5RuleLine = (summary.productPricingRule === 'combo5_unit' && summary.productUnitCents > 0 && summary.regularQty > 0)
+        ? `ℹ️ *Regra aplicada nos tradicionais:* acima de 5 unidades, cada potinho sai por ${formatCentsBRL(summary.productUnitCents)} (valor do combo 5).`
         : null;
+      const regularLine = summary.regularQty > 0 ? `🍓 *Potinhos tradicionais:* ${saboresTxt}` : null;
+      const specialLine = summary.specialQty > 0 ? `✨ *Potinhos especiais:* ${saboresEspeciaisTxt}` : null;
+      const regularValueLine = summary.regularQty > 0 ? `💵 *Valor tradicionais:* ${formatCentsBRL(summary.regularProductCents)}` : null;
+      const specialValueLine = summary.specialQty > 0 ? `💎 *Valor especiais:* ${formatCentsBRL(summary.specialProductCents)}` : null;
 
       const lines = [
         "Pedido — SIL GOURMET (250 g)",
@@ -2795,9 +3237,12 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         '',
         `🛒 *Produto/Combo:* ${summary.productLabel}`,
         `💰 *Valor do produto:* ${summary.productValueLabel}`,
+        regularValueLine,
+        specialValueLine,
         combo5RuleLine,
         `📦 *Quantidade total:* ${qtd}`,
-        `🍓 *Sabor(es):* ${saboresTxt}`,
+        regularLine,
+        specialLine,
         `🚚 *Retirada/Entrega:* ${modo}`,
         `📍 *Bairro/local:* ${deliveryAreaLabel}`,
         (modo === "Entrega") ? `🏠 *Endereço:* ${endereco}` : null,
@@ -2920,6 +3365,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       setupThemeEditor();
       setupPriceViewEditor();
       setupExtraFlavorPanelToggle();
+      renderRegularExtraFlavors();
       renderExtraFlavors();
       setThumbs();
       setupSingleSelect();
@@ -2936,14 +3382,19 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       $("imgModalClose").addEventListener("click", closeImageModal);
       $("imgModal").addEventListener("click", (ev)=>{ if(ev.target.id === 'imgModal') closeImageModal(); });
       document.addEventListener("keydown", (ev)=>{ if(ev.key === 'Escape') closeImageModal(); });
+      const addRegularBtn = $('addRegularFlavorBtn');
+      const removeRegularBtn = $('removeRegularFlavorBtn');
       const addBtn = $('addExtraFlavorBtn');
       const removeBtn = $('removeExtraFlavorBtn');
       const addComboBtn = $('addExtraComboBtn');
       const removeComboBtn = $('removeExtraComboBtn');
+      if(addRegularBtn) addRegularBtn.addEventListener('click', addRegularExtraFlavor);
+      if(removeRegularBtn) removeRegularBtn.addEventListener('click', removeLastRegularExtraFlavor);
       if(addBtn) addBtn.addEventListener('click', addExtraFlavor);
       if(removeBtn) removeBtn.addEventListener('click', removeLastExtraFlavor);
       if(addComboBtn) addComboBtn.addEventListener('click', addExtraCombo);
       if(removeComboBtn) removeComboBtn.addEventListener('click', removeLastExtraCombo);
+      if(removeRegularBtn) removeRegularBtn.style.display = regularExtraFlavors.length ? 'inline-flex' : 'none';
       if(removeBtn) removeBtn.style.display = extraFlavors.length ? 'inline-flex' : 'none';
       if(removeComboBtn) removeComboBtn.style.display = extraCombos.length ? 'inline-flex' : 'none';
     });
