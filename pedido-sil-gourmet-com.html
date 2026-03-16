@@ -420,7 +420,8 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
   border-radius:999px;
   font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   text-align:center;
-  white-space:nowrap;
+  white-space:pre-line;
+  line-height:1.2;
 }
 .summaryValueProduct{
   color:#1f5f36;
@@ -701,7 +702,8 @@ input[readonly]{background:rgba(36,26,16,.74);color:#f2e7d2}
   border-radius:999px;
   font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   text-align:center;
-  white-space:nowrap;
+  white-space:pre-line;
+  line-height:1.2;
 }
 .summaryValueProduct{
   color:#1f5f36;
@@ -1113,7 +1115,8 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
   border-radius:999px;
   font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   text-align:center;
-  white-space:nowrap;
+  white-space:pre-line;
+  line-height:1.2;
 }
 .summaryValueProduct{
   color:#1f5f36;
@@ -1214,42 +1217,102 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 <div id="singleBox" style="display:none;margin-top:10px">
 <label>Escolha 1 sabor</label>
 <div class="flavorsGrid" id="singleGrid" style="margin-top:10px">
-<div class="flavorCard selected" data-sflavor="Morango Clássico">
+<div class="flavorCard selected" data-sflavor="Morango">
 <div class="flavorLeft">
-<img alt="Morango Clássico" class="flavorThumb" data-thumb="Morango Clássico"/>
+<img alt="Morango" class="flavorThumb" data-thumb="Morango" src="sabor-morango.jpg"/>
 <div>
-<p class="flavorName">Morango Clássico</p>
+<p class="flavorName">Morango</p>
 <p class="flavorNote">geleia de morango</p>
 </div>
 </div>
 <div class="flavorRadio"></div>
 </div>
-<div class="flavorCard" data-sflavor="Maracujá Tropical">
+<div class="flavorCard" data-sflavor="Maracujá">
 <div class="flavorLeft">
-<img alt="Maracujá Tropical" class="flavorThumb" data-thumb="Maracujá Tropical"/>
+<img alt="Maracujá" class="flavorThumb" data-thumb="Maracujá" src="sabor-maracujá.jpg"/>
 <div>
-<p class="flavorName">Maracujá Tropical</p>
+<p class="flavorName">Maracujá</p>
 <p class="flavorNote">geleia de maracujá</p>
 </div>
 </div>
 <div class="flavorRadio"></div>
 </div>
-<div class="flavorCard" data-sflavor="Uva Intensa">
+<div class="flavorCard" data-sflavor="Uva">
 <div class="flavorLeft">
-<img alt="Uva Intensa" class="flavorThumb" data-thumb="Uva Intensa"/>
+<img alt="Uva" class="flavorThumb" data-thumb="Uva" src="sabor-uva.jpg"/>
 <div>
-<p class="flavorName">Uva Intensa</p>
+<p class="flavorName">Uva</p>
 <p class="flavorNote">geleia de uva</p>
 </div>
 </div>
 <div class="flavorRadio"></div>
 </div>
-<div class="flavorCard" data-sflavor="Abacaxi Dourado">
+<div class="flavorCard" data-sflavor="Amora">
 <div class="flavorLeft">
-<img alt="Amora" class="flavorThumb" data-thumb="Abacaxi Dourado"/>
+<img alt="Amora" class="flavorThumb" data-thumb="Amora" src="sabor-amora.jpg"/>
 <div>
 <p class="flavorName">Amora</p>
 <p class="flavorNote">geleia de amora</p>
+</div>
+</div>
+<div class="flavorRadio"></div>
+</div>
+<div class="flavorCard" data-sflavor="Abacaxi">
+<div class="flavorLeft">
+<img alt="Abacaxi" class="flavorThumb" data-thumb="Abacaxi" src="sabor-abacaxi.jpg"/>
+<div>
+<p class="flavorName">Abacaxi</p>
+<p class="flavorNote">geleia de abacaxi</p>
+</div>
+</div>
+<div class="flavorRadio"></div>
+</div>
+<div class="flavorCard" data-sflavor="Cupuaçu">
+<div class="flavorLeft">
+<img alt="Cupuaçu" class="flavorThumb" data-thumb="Cupuaçu" src="sabor-cupuacu.jpg"/>
+<div>
+<p class="flavorName">Cupuaçu</p>
+<p class="flavorNote">geleia de cupuaçu</p>
+</div>
+</div>
+<div class="flavorRadio"></div>
+</div>
+<div class="flavorCard" data-sflavor="Kiwi Amarelo">
+<div class="flavorLeft">
+<img alt="Kiwi Amarelo" class="flavorThumb" data-thumb="Kiwi Amarelo" src="sabor-kiwi-amarelo.jpg"/>
+<div>
+<p class="flavorName">Kiwi Amarelo</p>
+<p class="flavorNote">geleia de kiwi amarelo</p>
+</div>
+</div>
+<div class="flavorRadio"></div>
+</div>
+<div class="flavorCard" data-sflavor="Kiwi Verde">
+<div class="flavorLeft">
+<img alt="Kiwi Verde" class="flavorThumb" data-thumb="Kiwi Verde" src="sabor-kiwi-verde.jpg"/>
+<div>
+<p class="flavorName">Kiwi Verde</p>
+<p class="flavorNote">geleia de kiwi verde</p>
+</div>
+</div>
+<div class="flavorRadio"></div>
+</div>
+<div class="flavorCard" data-sflavor="Manga">
+<div class="flavorLeft">
+<img alt="Manga" class="flavorThumb" data-thumb="Manga" src="sabor-manga.jpg"/>
+<div>
+<p class="flavorName">Manga</p>
+<p class="flavorNote">geleia de manga</p>
+</div>
+</div>
+<div class="flavorRadio"></div>
+</div>
+<div class="flavorCard" data-sflavor="Pitaia">
+<div class="flavorLeft">
+<img alt="Pitaia" class="flavorThumb" data-thumb="Pitaia" src="sabor-pitaia.jpg"/>
+<div>
+<p class="flavorName">Pitaia</p>
+<p class="flavorNote">geleia de pitaia</p>
 </div>
 </div>
 <div class="flavorRadio"></div>
@@ -1262,45 +1325,105 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 <div class="hint">Coloque a quantidade em cada quadradinho (0 = não quero). O total é calculado automaticamente.</div>
 <div class="zoomHint">Clique na foto para visualizar melhor.</div>
 <div class="flavorsGrid" id="multiGrid" style="margin-top:10px">
-<div class="flavorCard" data-mflavor="Morango Clássico">
+<div class="flavorCard" data-mflavor="Morango">
 <div class="flavorLeft">
-<img alt="Morango Clássico" class="flavorThumb" data-thumb="Morango Clássico"/>
+<img alt="Morango" class="flavorThumb" data-thumb="Morango" src="sabor-morango.jpg"/>
 <div class="flavorTextEdit">
-<input class="flavorEditInput" data-edit-name="Morango Clássico" value="Morango Clássico"/>
-<input class="flavorEditDesc" data-edit-desc="Morango Clássico" value="geleia de morango"/>
+<input class="flavorEditInput" data-edit-name="Morango" value="Morango"/>
+<input class="flavorEditDesc" data-edit-desc="Morango" value="geleia de morango"/>
 </div>
 </div>
 <input class="qtySquare" id="qty_morango" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
-<div class="flavorCard" data-mflavor="Maracujá Tropical">
+<div class="flavorCard" data-mflavor="Maracujá">
 <div class="flavorLeft">
-<img alt="Maracujá Tropical" class="flavorThumb" data-thumb="Maracujá Tropical"/>
+<img alt="Maracujá" class="flavorThumb" data-thumb="Maracujá" src="sabor-maracujá.jpg"/>
 <div class="flavorTextEdit">
-<input class="flavorEditInput" data-edit-name="Maracujá Tropical" value="Maracujá Tropical"/>
-<input class="flavorEditDesc" data-edit-desc="Maracujá Tropical" value="geleia de maracujá"/>
+<input class="flavorEditInput" data-edit-name="Maracujá" value="Maracujá"/>
+<input class="flavorEditDesc" data-edit-desc="Maracujá" value="geleia de maracujá"/>
 </div>
 </div>
 <input class="qtySquare" id="qty_maracuja" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
-<div class="flavorCard" data-mflavor="Uva Intensa">
+<div class="flavorCard" data-mflavor="Uva">
 <div class="flavorLeft">
-<img alt="Uva Intensa" class="flavorThumb" data-thumb="Uva Intensa"/>
+<img alt="Uva" class="flavorThumb" data-thumb="Uva" src="sabor-uva.jpg"/>
 <div class="flavorTextEdit">
-<input class="flavorEditInput" data-edit-name="Uva Intensa" value="Uva Intensa"/>
-<input class="flavorEditDesc" data-edit-desc="Uva Intensa" value="geleia de uva"/>
+<input class="flavorEditInput" data-edit-name="Uva" value="Uva"/>
+<input class="flavorEditDesc" data-edit-desc="Uva" value="geleia de uva"/>
 </div>
 </div>
 <input class="qtySquare" id="qty_uva" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
-<div class="flavorCard" data-mflavor="Abacaxi Dourado">
+<div class="flavorCard" data-mflavor="Amora">
 <div class="flavorLeft">
-<img alt="Amora" class="flavorThumb" data-thumb="Abacaxi Dourado"/>
+<img alt="Amora" class="flavorThumb" data-thumb="Amora" src="sabor-amora.jpg"/>
 <div class="flavorTextEdit">
-<input class="flavorEditInput" data-edit-name="Abacaxi Dourado" value="Amora"/>
-<input class="flavorEditDesc" data-edit-desc="Abacaxi Dourado" value="geleia de amora"/>
+<input class="flavorEditInput" data-edit-name="Amora" value="Amora"/>
+<input class="flavorEditDesc" data-edit-desc="Amora" value="geleia de amora"/>
+</div>
+</div>
+<input class="qtySquare" id="qty_amora" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="flavorCard" data-mflavor="Abacaxi">
+<div class="flavorLeft">
+<img alt="Abacaxi" class="flavorThumb" data-thumb="Abacaxi" src="sabor-abacaxi.jpg"/>
+<div class="flavorTextEdit">
+<input class="flavorEditInput" data-edit-name="Abacaxi" value="Abacaxi"/>
+<input class="flavorEditDesc" data-edit-desc="Abacaxi" value="geleia de abacaxi"/>
 </div>
 </div>
 <input class="qtySquare" id="qty_abacaxi" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="flavorCard" data-mflavor="Cupuaçu">
+<div class="flavorLeft">
+<img alt="Cupuaçu" class="flavorThumb" data-thumb="Cupuaçu" src="sabor-cupuacu.jpg"/>
+<div class="flavorTextEdit">
+<input class="flavorEditInput" data-edit-name="Cupuaçu" value="Cupuaçu"/>
+<input class="flavorEditDesc" data-edit-desc="Cupuaçu" value="geleia de cupuaçu"/>
+</div>
+</div>
+<input class="qtySquare" id="qty_cupuacu" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="flavorCard" data-mflavor="Kiwi Amarelo">
+<div class="flavorLeft">
+<img alt="Kiwi Amarelo" class="flavorThumb" data-thumb="Kiwi Amarelo" src="sabor-kiwi-amarelo.jpg"/>
+<div class="flavorTextEdit">
+<input class="flavorEditInput" data-edit-name="Kiwi Amarelo" value="Kiwi Amarelo"/>
+<input class="flavorEditDesc" data-edit-desc="Kiwi Amarelo" value="geleia de kiwi amarelo"/>
+</div>
+</div>
+<input class="qtySquare" id="qty_kiwi_amarelo" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="flavorCard" data-mflavor="Kiwi Verde">
+<div class="flavorLeft">
+<img alt="Kiwi Verde" class="flavorThumb" data-thumb="Kiwi Verde" src="sabor-kiwi-verde.jpg"/>
+<div class="flavorTextEdit">
+<input class="flavorEditInput" data-edit-name="Kiwi Verde" value="Kiwi Verde"/>
+<input class="flavorEditDesc" data-edit-desc="Kiwi Verde" value="geleia de kiwi verde"/>
+</div>
+</div>
+<input class="qtySquare" id="qty_kiwi_verde" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="flavorCard" data-mflavor="Manga">
+<div class="flavorLeft">
+<img alt="Manga" class="flavorThumb" data-thumb="Manga" src="sabor-manga.jpg"/>
+<div class="flavorTextEdit">
+<input class="flavorEditInput" data-edit-name="Manga" value="Manga"/>
+<input class="flavorEditDesc" data-edit-desc="Manga" value="geleia de manga"/>
+</div>
+</div>
+<input class="qtySquare" id="qty_manga" inputmode="numeric" min="0" step="1" type="number" value="0"/>
+</div>
+<div class="flavorCard" data-mflavor="Pitaia">
+<div class="flavorLeft">
+<img alt="Pitaia" class="flavorThumb" data-thumb="Pitaia" src="sabor-pitaia.jpg"/>
+<div class="flavorTextEdit">
+<input class="flavorEditInput" data-edit-name="Pitaia" value="Pitaia"/>
+<input class="flavorEditDesc" data-edit-desc="Pitaia" value="geleia de pitaia"/>
+</div>
+</div>
+<input class="qtySquare" id="qty_pitaia" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
 <div id="regularExtraFlavorMount"></div>
 </div>
@@ -1390,29 +1513,41 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     const $ = (id) => document.getElementById(id);
 
     const flavorMeta = {
-      "Morango Clássico": { img: "sabor-morango.jpg", desc: "geleia de morango" },
-      "Maracujá Tropical": { img: "sabor-maracuja.jpg", desc: "geleia de maracujá" },
-      "Uva Intensa": { img: "sabor-uva.jpg", desc: "geleia de uva" },
-      "Abacaxi Dourado": { img: "sabor-amora.jpg", desc: "geleia de amora", customName: "Amora" }
+      "Morango": { img: "sabor-morango.jpg", desc: "geleia de morango" },
+      "Maracujá": { img: "sabor-maracujá.jpg", desc: "geleia de maracujá" },
+      "Uva": { img: "sabor-uva.jpg", desc: "geleia de uva" },
+      "Amora": { img: "sabor-amora.jpg", desc: "geleia de amora" },
+      "Abacaxi": { img: "sabor-abacaxi.jpg", desc: "geleia de abacaxi" },
+      "Cupuaçu": { img: "sabor-cupuacu.jpg", desc: "geleia de cupuaçu" },
+      "Kiwi Amarelo": { img: "sabor-kiwi-amarelo.jpg", desc: "geleia de kiwi amarelo" },
+      "Kiwi Verde": { img: "sabor-kiwi-verde.jpg", desc: "geleia de kiwi verde" },
+      "Manga": { img: "sabor-manga.jpg", desc: "geleia de manga" },
+      "Pitaia": { img: "sabor-pitaia.jpg", desc: "geleia de pitaia" }
     };
 
-    const BASE_FLAVORS = ["Morango Clássico","Maracujá Tropical","Uva Intensa","Abacaxi Dourado"];
+    const BASE_FLAVORS = ["Morango","Maracujá","Uva","Amora","Abacaxi","Cupuaçu","Kiwi Amarelo","Kiwi Verde","Manga","Pitaia"];
     const qtyIds = {
-      "Morango Clássico": "qty_morango",
-      "Maracujá Tropical": "qty_maracuja",
-      "Uva Intensa": "qty_uva",
-      "Abacaxi Dourado": "qty_abacaxi"
+      "Morango": "qty_morango",
+      "Maracujá": "qty_maracuja",
+      "Uva": "qty_uva",
+      "Amora": "qty_amora",
+      "Abacaxi": "qty_abacaxi",
+      "Cupuaçu": "qty_cupuacu",
+      "Kiwi Amarelo": "qty_kiwi_amarelo",
+      "Kiwi Verde": "qty_kiwi_verde",
+      "Manga": "qty_manga",
+      "Pitaia": "qty_pitaia"
     };
 
-    const flavorStorageKey = "sil_gourmet_flavor_edits_v2";
-    const extraFlavorStorageKey = "sil_gourmet_extra_flavors_v1";
-    const regularExtraFlavorStorageKey = "sil_gourmet_regular_extra_flavors_v1";
-    const extraFlavorPanelStorageKey = "sil_gourmet_extra_flavor_panel_v1";
-    const priceStorageKey = "sil_gourmet_price_edits_v2";
-    const perUnitStorageKey = "sil_gourmet_per_unit_edits_v1";
-    const extraComboStorageKey = "sil_gourmet_extra_combos_v2";
-    const themeStorageKey = "sil_gourmet_theme_v2";
-    const priceViewStorageKey = "sil_gourmet_price_view_v1";
+    const flavorStorageKey = "sil_gourmet_locked_flavor_edits_v1";
+    const extraFlavorStorageKey = "sil_gourmet_locked_extra_flavors_v1";
+    const regularExtraFlavorStorageKey = "sil_gourmet_locked_regular_extra_flavors_v1";
+    const extraFlavorPanelStorageKey = "sil_gourmet_locked_extra_flavor_panel_v1";
+    const priceStorageKey = "sil_gourmet_locked_price_edits_v1";
+    const perUnitStorageKey = "sil_gourmet_locked_per_unit_edits_v1";
+    const extraComboStorageKey = "sil_gourmet_locked_extra_combos_v1";
+    const themeStorageKey = "sil_gourmet_locked_theme_v1";
+    const priceViewStorageKey = "sil_gourmet_locked_price_view_v1";
     const defaultPrices = {
       single: "15,99",
       combo2: "29,90",
@@ -1527,7 +1662,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     `)}`;
 
     const thumbInputs = {};
-    const IMAGE_DB_NAME = "sil_gourmet_images_db_v1";
+    const IMAGE_DB_NAME = "sil_gourmet_locked_images_db_v1";
     const IMAGE_DB_STORE = "thumbs";
 
     function openImageDb(){
@@ -1586,10 +1721,16 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
     function defaultFlavorState(){
       return {
-        "Morango Clássico": { name: "Morango Clássico", desc: "geleia de morango" },
-        "Maracujá Tropical": { name: "Maracujá Tropical", desc: "geleia de maracujá" },
-        "Uva Intensa": { name: "Uva Intensa", desc: "geleia de uva" },
-        "Abacaxi Dourado": { name: "Amora", desc: "geleia de amora" }
+        "Morango": { name: "Morango", desc: "geleia de morango" },
+        "Maracujá": { name: "Maracujá", desc: "geleia de maracujá" },
+        "Uva": { name: "Uva", desc: "geleia de uva" },
+        "Amora": { name: "Amora", desc: "geleia de amora" },
+        "Abacaxi": { name: "Abacaxi", desc: "geleia de abacaxi" },
+        "Cupuaçu": { name: "Cupuaçu", desc: "geleia de cupuaçu" },
+        "Kiwi Amarelo": { name: "Kiwi Amarelo", desc: "geleia de kiwi amarelo" },
+        "Kiwi Verde": { name: "Kiwi Verde", desc: "geleia de kiwi verde" },
+        "Manga": { name: "Manga", desc: "geleia de manga" },
+        "Pitaia": { name: "Pitaia", desc: "geleia de pitaia" }
       };
     }
 
@@ -1654,12 +1795,29 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       try{ localStorage.setItem(flavorStorageKey, JSON.stringify(flavorState)); }catch(e){}
     }
 
+    function serializeExtraFlavorsForStorage(){
+      return extraFlavors.map(item => ({
+        key: String(item.key || ''),
+        name: String(item.name || ''),
+        desc: String(item.desc || ''),
+        price: normalizePriceInput(String(item.price || defaultPrices.single)) || defaultPrices.single
+      }));
+    }
+
+    function serializeRegularExtraFlavorsForStorage(){
+      return regularExtraFlavors.map(item => ({
+        key: String(item.key || ''),
+        name: String(item.name || ''),
+        desc: String(item.desc || '')
+      }));
+    }
+
     function saveExtraFlavors(){
-      try{ localStorage.setItem(extraFlavorStorageKey, JSON.stringify(extraFlavors)); }catch(e){}
+      try{ localStorage.setItem(extraFlavorStorageKey, JSON.stringify(serializeExtraFlavorsForStorage())); }catch(e){}
     }
 
     function saveRegularExtraFlavors(){
-      try{ localStorage.setItem(regularExtraFlavorStorageKey, JSON.stringify(regularExtraFlavors)); }catch(e){}
+      try{ localStorage.setItem(regularExtraFlavorStorageKey, JSON.stringify(serializeRegularExtraFlavorsForStorage())); }catch(e){}
     }
 
     function isRegularExtraFlavor(flavor){
@@ -2471,11 +2629,12 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
       let productLabel = 'Selecione os potinhos';
       if(regularQty > 0 && specialQty > 0){
-        productLabel = `${regularQty} tradicional(is) + ${specialQty} especial(is)`;
+        productLabel = `tradicional(${regularQty})
+especial(${specialQty})`;
       }else if(regularQty > 0){
-        productLabel = regularProduct.label;
+        productLabel = `tradicional(${regularQty})`;
       }else if(specialQty > 0){
-        productLabel = `${specialQty} especial(is)`;
+        productLabel = `especial(${specialQty})`;
       }
 
       let deliveryLabel = 'Retirada no local';
@@ -2639,36 +2798,42 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       let changedSpecial = false;
 
       regularExtraFlavors = regularExtraFlavors.map(item => {
-        if(item.img) return item;
-        let legacy = null;
-        try{ legacy = localStorage.getItem(safeKey(item.key)); }catch(e){}
-        if(!legacy) return item;
-        changedRegular = true;
-        return { ...item, img: legacy };
+        let stored = '';
+        try{ stored = localStorage.getItem(safeKey(item.key)) || ''; }catch(e){}
+        const inlineImg = String(item.img || '');
+        const finalImg = stored || inlineImg;
+        if(finalImg){
+          try{ if(!stored) localStorage.setItem(safeKey(item.key), finalImg); }catch(e){}
+          idbSetThumb(safeKey(item.key), finalImg);
+        }
+        if(inlineImg) changedRegular = true;
+        return { ...item, img: finalImg || '' };
       });
 
       extraFlavors = extraFlavors.map(item => {
-        if(item.img) return item;
-        let legacy = null;
-        try{ legacy = localStorage.getItem(safeKey(item.key)); }catch(e){}
-        if(!legacy) return item;
-        changedSpecial = true;
-        return { ...item, img: legacy };
+        let stored = '';
+        try{ stored = localStorage.getItem(safeKey(item.key)) || ''; }catch(e){}
+        const inlineImg = String(item.img || '');
+        const finalImg = stored || inlineImg;
+        if(finalImg){
+          try{ if(!stored) localStorage.setItem(safeKey(item.key), finalImg); }catch(e){}
+          idbSetThumb(safeKey(item.key), finalImg);
+        }
+        if(inlineImg) changedSpecial = true;
+        return { ...item, img: finalImg || '' };
       });
 
       if(changedRegular) saveRegularExtraFlavors();
       if(changedSpecial) saveExtraFlavors();
-
-      if(changedRegular || changedSpecial){
-        [...regularExtraFlavors.map(item => item.key), ...extraFlavors.map(item => item.key)].forEach(key=>{
-          try{ localStorage.removeItem(safeKey(key)); }catch(e){}
-        });
-      }
     }
 
     migrateLegacyExtraFlavorImages();
 
     function getSavedThumb(flavor){
+      try{
+        const direct = localStorage.getItem(safeKey(flavor));
+        if(direct) return direct;
+      }catch(e){}
       if(isExtraFlavor(flavor)){
         const extra = getExtraFlavor(flavor);
         if(extra && extra.img) return extra.img;
@@ -2677,7 +2842,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         const extra = getRegularExtraFlavor(flavor);
         if(extra && extra.img) return extra.img;
       }
-      try{ return localStorage.getItem(safeKey(flavor)); }catch(e){ return null; }
+      return null;
     }
 
     async function getSavedThumbAsync(flavor){
@@ -2699,17 +2864,21 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     function saveThumb(flavor, dataUrl){
       const finalData = String(dataUrl || '');
       idbSetThumb(safeKey(flavor), finalData);
+      try{
+        if(finalData){
+          localStorage.setItem(safeKey(flavor), finalData);
+        }else{
+          localStorage.removeItem(safeKey(flavor));
+        }
+      }catch(e){}
       if(isExtraFlavor(flavor)){
         setExtraFlavorImage(flavor, finalData);
-        try{ localStorage.removeItem(safeKey(flavor)); }catch(e){}
         return;
       }
       if(isRegularExtraFlavor(flavor)){
         setRegularExtraFlavorImage(flavor, finalData);
-        try{ localStorage.removeItem(safeKey(flavor)); }catch(e){}
         return;
       }
-      try{ localStorage.setItem(safeKey(flavor), finalData); }catch(e){}
     }
 
     function applyThumb(flavor, src){
@@ -2768,14 +2937,16 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           const img = new Image();
           img.onload = ()=>{
             const canvas = document.createElement('canvas');
-            const maxSide = 220;
+            const maxSide = 720;
             const ratio = Math.min(1, maxSide / Math.max(img.width || 1, img.height || 1));
             canvas.width = Math.max(1, Math.round((img.width || 1) * ratio));
             canvas.height = Math.max(1, Math.round((img.height || 1) * ratio));
             const ctx = canvas.getContext('2d');
             if(ctx){
+              ctx.imageSmoothingEnabled = true;
+              ctx.imageSmoothingQuality = 'high';
               ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-              const compressed = canvas.toDataURL('image/jpeg', 0.42);
+              const compressed = canvas.toDataURL('image/jpeg', 0.82);
               saveThumb(flavor, compressed || rawDataUrl);
               applyThumb(flavor, compressed || rawDataUrl);
             }else{
