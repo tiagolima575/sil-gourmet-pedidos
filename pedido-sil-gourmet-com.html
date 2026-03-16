@@ -420,7 +420,8 @@ body.adminUnlocked .flavorThumb{cursor:pointer}
   border-radius:999px;
   font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   text-align:center;
-  white-space:nowrap;
+  white-space:pre-line;
+  line-height:1.2;
 }
 .summaryValueProduct{
   color:#1f5f36;
@@ -701,7 +702,8 @@ input[readonly]{background:rgba(36,26,16,.74);color:#f2e7d2}
   border-radius:999px;
   font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   text-align:center;
-  white-space:nowrap;
+  white-space:pre-line;
+  line-height:1.2;
 }
 .summaryValueProduct{
   color:#1f5f36;
@@ -1113,7 +1115,8 @@ body[data-theme="classic"] .adminHint{color:#5a4736}
   border-radius:999px;
   font:800 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   text-align:center;
-  white-space:nowrap;
+  white-space:pre-line;
+  line-height:1.2;
 }
 .summaryValueProduct{
   color:#1f5f36;
@@ -2488,11 +2491,12 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 
       let productLabel = 'Selecione os potinhos';
       if(regularQty > 0 && specialQty > 0){
-        productLabel = `${regularQty} tradicional(is) + ${specialQty} especial(is)`;
+        productLabel = `tradicional(${regularQty})
+especial(${specialQty})`;
       }else if(regularQty > 0){
-        productLabel = regularProduct.label;
+        productLabel = `tradicional(${regularQty})`;
       }else if(specialQty > 0){
-        productLabel = `${specialQty} especial(is)`;
+        productLabel = `especial(${specialQty})`;
       }
 
       let deliveryLabel = 'Retirada no local';
