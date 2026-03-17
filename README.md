@@ -27,6 +27,7 @@ Esses ficam separados para não bagunçar o catálogo.
 - Kiwi Amarelo → `sabor-kiwi-amarelo.jpg`
 - Kiwi Verde → `sabor-kiwi-verde.jpg`
 - Pitaia → `sabor-pitaia.jpg`
+- Ameixa Especial → `ameixa-especial.jpg`
 
 **Regra dos especiais:**
 - aparecem em bloco separado;
@@ -67,6 +68,7 @@ Você pode manter tudo na mesma pasta:
 - `sabor-kiwi-amarelo.jpg`
 - `sabor-kiwi-verde.jpg`
 - `sabor-pitaia.jpg`
+- `ameixa-especial.jpg`
 
 Se quiser deixar mais limpo, também pode organizar assim:
 - `img/tradicionais/`
