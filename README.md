@@ -1,18 +1,11 @@
-# SIL Gourmet — organização do catálogo
+# SIL Gourmet — catálogo separado do jeito certo
 
-Este projeto foi organizado para trabalhar com **duas categorias separadas**:
+Agora o catálogo foi organizado em **dois blocos fixos**, para não misturar na hora de editar:
 
-- **Tradicionais**
-- **Especiais**
+## BLOCO 1 — TRADICIONAIS
+Esses entram na regra normal do catálogo e nos combos padrões.
 
-A regra é simples: **não misturar os dois blocos**.
-
-## Estrutura correta
-
-### 1) Tradicionais
-Os sabores tradicionais ficam em um bloco próprio, com a lógica normal de preço e combos.
-
-**Sabores tradicionais atuais:**
+**Sabores tradicionais fixos:**
 - Morango Clássico → `sabor-morango.jpg`
 - Maracujá Tropical → `sabor-maracuja.jpg`
 - Uva Intensa → `sabor-uva.jpg`
@@ -20,91 +13,74 @@ Os sabores tradicionais ficam em um bloco próprio, com a lógica normal de pre�
 - Amora → `sabor-amora.jpg`
 - Manga → `sabor-manga.jpg`
 
-**Regras dos tradicionais:**
-- ficam no bloco de sabores normais;
-- usam a regra padrão de quantidade;
-- usam a regra padrão de combos;
+**Regra dos tradicionais:**
+- ficam no bloco normal;
+- usam a lógica padrão de quantidade;
+- usam a lógica padrão de combos;
 - entram no resumo como **tradicionais**.
 
-## 2) Especiais
-Os sabores especiais precisam ficar em **bloco separado**, sem misturar com os tradicionais.
+## BLOCO 2 — ESPECIAIS
+Esses ficam separados para não bagunçar o catálogo.
 
-**Modelo para cadastrar especiais:**
-- Nome do sabor
-- Descrição
-- Imagem
-- Preço próprio
-- Quantidade própria
+**Sabores especiais fixos:**
+- Cupuaçu → `sabor-cupuacu.jpg`
+- Kiwi Amarelo → `sabor-kiwi-amarelo.jpg`
+- Kiwi Verde → `sabor-kiwi-verde.jpg`
+- Pitaia → `sabor-pitaia.jpg`
 
-**Exemplo de organização:**
-- Especial 1 → `especial-nome-do-sabor.jpg`
-- Especial 2 → `especial-outro-sabor.jpg`
-- Especial 3 → `especial-mais-um-sabor.jpg`
-
-**Regras dos especiais:**
-- aparecem em seção separada;
-- possuem preço próprio;
-- possuem quantidade separada;
+**Regra dos especiais:**
+- aparecem em bloco separado;
+- têm quantidade separada;
+- têm preço próprio editável;
 - entram no resumo como **especiais**;
-- não devem herdar automaticamente a regra dos tradicionais.
+- não se misturam com os tradicionais.
+
+## Como adicionar novos depois
+
+### Se for TRADICIONAL
+Adicionar no bloco de tradicionais.
+Exemplo:
+- Nome
+- Descrição
+- Imagem do site
+
+### Se for ESPECIAL
+Adicionar no bloco de especiais.
+Exemplo:
+- Nome
+- Descrição
+- Imagem do site
+- Preço próprio
 
 ## Organização dos arquivos
 
-Você pode manter assim:
-
-- `pedido-sil-gourmet-com.html`
-- `README.md`
+Você pode manter tudo na mesma pasta:
+- `pedido-sil-gourmet-com-separado-definitivo.html`
+- `README-separado-definitivo.md`
 - `sabor-morango.jpg`
 - `sabor-maracuja.jpg`
 - `sabor-uva.jpg`
 - `sabor-abacaxi.jpg`
 - `sabor-amora.jpg`
+- `sabor-manga.jpg`
 - `sabor-cupuacu.jpg`
 - `sabor-kiwi-amarelo.jpg`
 - `sabor-kiwi-verde.jpg`
-- `sabor-manga.jpg`
 - `sabor-pitaia.jpg`
-- arquivos dos especiais
 
-Se quiser deixar mais limpo, pode organizar em duas pastas:
-
+Se quiser deixar mais limpo, também pode organizar assim:
 - `img/tradicionais/`
 - `img/especiais/`
 
-## Regra obrigatória de organização
+Nesse caso, ajuste o caminho base das imagens no HTML.
 
-O catálogo deve sempre seguir esta ordem:
-
-### BLOCO 1 — TRADICIONAIS
-Lista de sabores normais do catálogo.
-
-### BLOCO 2 — ESPECIAIS
-Lista separada dos sabores especiais.
-
-## Resumo do pedido
-
-No fechamento do pedido, o sistema deve continuar mostrando separado:
-
+## Resumo final do pedido
+No fechamento, o sistema deve mostrar separado:
 - quantidade de **tradicionais**;
 - valor de **tradicionais**;
 - quantidade de **especiais**;
 - valor de **especiais**.
 
 ## Observação importante
-
-Se você editar só no navegador, a mudança pode ficar local.
-Para valer para todo mundo, o certo é:
-
-1. atualizar o arquivo publicado no site;
-2. manter as imagens no caminho certo;
-3. não misturar tradicionais com especiais.
-
-## Resumo final
-
-A estrutura correta da SIL Gourmet é esta:
-
-- **Tradicionais separados**
-- **Especiais separados**
-- **Imagens puxadas do site**
-- **Resumo separado por categoria**
-
+Essa versão usa uma separação nova de armazenamento no navegador para evitar puxar a mistura da versão antiga.
+Ou seja: abriu a nova versão, ela já começa organizada do jeito certo.
