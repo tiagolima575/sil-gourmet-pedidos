@@ -24,7 +24,6 @@ Esses ficam separados para não bagunçar o catálogo.
 
 **Sabores especiais fixos:**
 - Cupuaçu → `sabor-cupuacu.jpg`
-- Kiwi Amarelo → `sabor-kiwi-amarelo.jpg`
 - Kiwi Verde → `sabor-kiwi-verde.jpg`
 - Pitaia → `sabor-pitaia.jpg`
 - Ameixa Especial → `sabor-ameixa.jpg`
@@ -65,7 +64,6 @@ Você pode manter tudo na mesma pasta:
 - `sabor-amora.jpg`
 - `sabor-manga.jpg`
 - `sabor-cupuacu.jpg`
-- `sabor-kiwi-amarelo.jpg`
 - `sabor-kiwi-verde.jpg`
 - `sabor-pitaia.jpg`
 - `sabor-ameixa.jpg`
