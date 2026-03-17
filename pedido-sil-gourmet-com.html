@@ -5,9 +5,6 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
-<meta content="no-cache" http-equiv="Pragma"/>
-<meta content="0" http-equiv="Expires"/>
 <title>Sil Gourmet — Pedido</title>
 <style>
 :root{
@@ -181,45 +178,26 @@ body{
   border-color:rgba(95,113,65,.3);
   opacity:.5;
 }
+.adminRevealDot.saveMode{
+  width:auto;
+  min-width:92px;
+  height:36px;
+  padding:0 16px;
+  border-radius:999px;
+  background:linear-gradient(180deg, #6f8551, #5b6f40);
+  border:1px solid rgba(95,113,65,.38);
+  color:#f8f4ea;
+  opacity:1;
+  font:700 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  box-shadow:0 6px 16px rgba(54,66,37,.18), inset 0 1px 0 rgba(255,255,255,.22);
+}
+.adminRevealDot.saveMode:hover,
+.adminRevealDot.saveMode:focus{
+  opacity:1;
+}
+
 .adminHint{
   margin-top:8px;
-}
-.categoryBlock{
-  margin-top:12px;
-  padding:14px;
-  border-radius:18px;
-  background:rgba(255,248,238,.56);
-  border:1px solid rgba(107,82,58,.18);
-  box-shadow:0 6px 16px rgba(0,0,0,.04), inset 0 1px 0 rgba(255,255,255,.28);
-}
-.categoryBlock + .categoryBlock{
-  margin-top:14px;
-}
-.categoryBlockTitle{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin:0 0 10px;
-  padding:6px 12px;
-  border-radius:999px;
-  background:rgba(95,113,65,.14);
-  border:1px solid rgba(95,113,65,.22);
-  color:#334123;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-}
-.categoryBlockTitle.special{
-  background:rgba(123,87,63,.12);
-  border-color:rgba(123,87,63,.2);
-  color:#5a3d2a;
-}
-.categoryBlockSubtitle{
-  margin:0 0 10px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.5;
 }
 .card{
   margin-top:0;
@@ -1252,7 +1230,6 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 <div class="sep"></div>
 <div style="margin-top:10px">
 <div class="sectionTitle">SABORES</div>
-<div class="hint" style="margin-top:8px">Catálogo organizado em 2 blocos separados: <strong>Tradicionais</strong> e <strong>Especiais</strong>.</div>
 <input checked="" hidden="" id="multiMode" type="checkbox"/>
 <!-- MODO 1 SABOR -->
 <div id="singleBox" style="display:none;margin-top:10px">
@@ -1290,10 +1267,10 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 </div>
 <div class="flavorCard" data-sflavor="Abacaxi Dourado">
 <div class="flavorLeft">
-<img alt="Abacaxi Dourado" class="flavorThumb" data-thumb="Abacaxi Dourado"/>
+<img alt="Amora" class="flavorThumb" data-thumb="Abacaxi Dourado"/>
 <div>
-<p class="flavorName">Abacaxi Dourado</p>
-<p class="flavorNote">geleia de abacaxi</p>
+<p class="flavorName">Amora</p>
+<p class="flavorNote">geleia de amora</p>
 </div>
 </div>
 <div class="flavorRadio"></div>
@@ -1302,10 +1279,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 </div>
 <!-- MODO MÚLTIPLOS -->
 <div id="multiBox" style="display:none;margin-top:10px">
-<div class="categoryBlock">
-<div class="categoryBlockTitle">BLOCO 1 — POTINHOS TRADICIONAIS</div>
 <label>Quantidades por sabor — tradicionais</label>
-<div class="categoryBlockSubtitle">Esses sabores seguem a regra normal dos combos e entram no resumo como tradicionais.</div>
 <div class="hint">Coloque a quantidade em cada quadradinho (0 = não quero). O total é calculado automaticamente.</div>
 <div class="zoomHint">Clique na foto para visualizar melhor.</div>
 <div class="flavorsGrid" id="multiGrid" style="margin-top:10px">
@@ -1341,17 +1315,17 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 </div>
 <div class="flavorCard" data-mflavor="Abacaxi Dourado">
 <div class="flavorLeft">
-<img alt="Abacaxi Dourado" class="flavorThumb" data-thumb="Abacaxi Dourado"/>
+<img alt="Amora" class="flavorThumb" data-thumb="Abacaxi Dourado"/>
 <div class="flavorTextEdit">
-<input class="flavorEditInput" data-edit-name="Abacaxi Dourado" value="Abacaxi Dourado"/>
-<input class="flavorEditDesc" data-edit-desc="Abacaxi Dourado" value="geleia de abacaxi"/>
+<input class="flavorEditInput" data-edit-name="Abacaxi Dourado" value="Amora"/>
+<input class="flavorEditDesc" data-edit-desc="Abacaxi Dourado" value="geleia de amora"/>
 </div>
 </div>
 <input class="qtySquare" id="qty_abacaxi" inputmode="numeric" min="0" step="1" type="number" value="0"/>
 </div>
 <div id="regularExtraFlavorMount"></div>
 </div>
-<div id="specialFlavorSection" class="specialFlavorSection categoryBlock" style="display:none"><div class="categoryBlockTitle special">BLOCO 2 — POTINHOS ESPECIAIS</div><div class="categoryBlockSubtitle">Os especiais ficam separados dos tradicionais e usam preço e quantidade próprios.</div><div class="hint specialFlavorSub">Itens com preço próprio. A soma entra no mesmo total do pedido, mas o resumo continua separado.</div><div class="flavorsGrid" id="specialFlavorGrid" style="margin-top:10px"></div><div class="hint" id="specialFlavorHint" style="margin-top:8px">Potinhos especiais selecionados: 0</div></div><div class="hint" id="multiTotalHint" style="margin-top:10px"><strong>Resumo por categoria:</strong> Tradicionais: 0 | Especiais: 0 | Total: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="regularFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addRegularFlavorBtn" type="button">Adicionar potinho tradicional</button><button class="ghostBtn" id="removeRegularFlavorBtn" type="button">Remover último tradicional</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro do bloco de Tradicionais, seguindo o mesmo preço dos combos normais.</div><div class="sep" style="margin:14px 0"></div><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar potinho especial</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último especial</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro do bloco de Especiais, com foto, nome, descrição, preço e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
+<div id="specialFlavorSection" class="specialFlavorSection" style="display:none"><div class="sectionTitle">POTINHOS ESPECIAIS</div><div class="hint specialFlavorSub">Itens com preço próprio. A soma entra no mesmo total do pedido.</div><div class="flavorsGrid" id="specialFlavorGrid" style="margin-top:10px"></div><div class="hint" id="specialFlavorHint" style="margin-top:8px">Potinhos especiais selecionados: 0</div></div><div class="hint" id="multiTotalHint" style="margin-top:8px">Tradicionais: 0 | Especiais: 0 | Total: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="regularFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addRegularFlavorBtn" type="button">Adicionar tradicional</button><button class="ghostBtn" id="removeRegularFlavorBtn" type="button">Remover último tradicional</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro dos tradicionais, seguindo o mesmo preço dos combos normais.</div><div class="sep" style="margin:14px 0"></div><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar potinho especial</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último especial</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro de Potinhos Especiais, com foto, nome, descrição, preço e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo. Para fechar, toque em Salvar.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
 </div>
 </div><div class="sep"></div>
 <div class="row">
@@ -1479,9 +1453,9 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     };
 
     const flavorStorageKey = "sil_gourmet_flavor_edits_v2";
-    const extraFlavorStorageKey = "sil_gourmet_extra_flavors_v2_split";
-    const regularExtraFlavorStorageKey = "sil_gourmet_regular_extra_flavors_v2_split";
-    const extraFlavorPanelStorageKey = "sil_gourmet_extra_flavor_panel_v1";
+    const extraFlavorStorageKey = "sil_gourmet_extra_flavors_v3_split_secret";
+    const regularExtraFlavorStorageKey = "sil_gourmet_regular_extra_flavors_v3_split_secret";
+    const extraFlavorPanelStorageKey = "sil_gourmet_extra_flavor_panel_v2_save_button";
     const priceStorageKey = "sil_gourmet_price_edits_v2";
     const perUnitStorageKey = "sil_gourmet_per_unit_edits_v1";
     const extraComboStorageKey = "sil_gourmet_extra_combos_v2";
@@ -1754,7 +1728,6 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
         key: String(item.key || ''),
         name: String(item.name || ''),
         desc: String(item.desc || ''),
-        img: String(item.img || ''),
         price: normalizePriceInput(String(item.price || defaultPrices.single)) || defaultPrices.single
       }));
     }
@@ -1763,8 +1736,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       return regularExtraFlavors.map(item => ({
         key: String(item.key || ''),
         name: String(item.name || ''),
-        desc: String(item.desc || ''),
-        img: String(item.img || '')
+        desc: String(item.desc || '')
       }));
     }
 
@@ -3008,11 +2980,39 @@ especial(${specialQty})`;
       return typed.trim().toLowerCase() === adminPassword;
     }
 
+    function persistAllAdminChanges(){
+      saveFlavorState();
+      saveRegularExtraFlavors();
+      saveExtraFlavors();
+      savePriceState();
+      savePerUnitState();
+      saveExtraCombos();
+      saveThemeState(document.body.getAttribute('data-theme') || 'premium');
+      savePriceViewState(document.body.getAttribute('data-price-view') || '3');
+    }
+
+    function updateExtraFlavorToggleAppearance(open){
+      const toggle = $('toggleExtraFlavorPanel');
+      if(!toggle) return;
+      if(open){
+        toggle.classList.add('saveMode');
+        toggle.classList.add('active');
+        toggle.textContent = 'Salvar';
+        toggle.setAttribute('aria-label', 'Salvar alterações e fechar painel secreto');
+        toggle.title = 'Salvar alterações';
+      }else{
+        toggle.classList.remove('saveMode');
+        toggle.classList.remove('active');
+        toggle.textContent = '';
+        toggle.setAttribute('aria-label', 'Mostrar opção oculta de produtos');
+        toggle.title = '';
+      }
+    }
+
     function setExtraFlavorPanel(open){
       const panel = $('extraFlavorPanel');
-      const toggle = $('toggleExtraFlavorPanel');
       if(panel) panel.classList.toggle('show', !!open);
-      if(toggle) toggle.classList.toggle('active', !!open);
+      updateExtraFlavorToggleAppearance(!!open);
       setAdminControlsEnabled(!!open);
       saveExtraFlavorPanelState(!!open);
     }
@@ -3025,6 +3025,7 @@ especial(${specialQty})`;
         const panel = $('extraFlavorPanel');
         const isOpen = !!(panel && panel.classList.contains('show'));
         if(isOpen){
+          persistAllAdminChanges();
           setExtraFlavorPanel(false);
           return;
         }
@@ -3035,7 +3036,7 @@ especial(${specialQty})`;
           setExtraFlavorPanel(false);
         }
       });
-      setExtraFlavorPanel(false);
+      setExtraFlavorPanel(getExtraFlavorPanelState());
     }
 
     function createRegularExtraFlavorKey(){
@@ -3169,7 +3170,7 @@ especial(${specialQty})`;
         name: `Especial ${extraFlavors.length + 1}`,
         desc: 'produto personalizado',
         img: '',
-        price: "15,99"
+        price: defaultPrices.single
       });
       saveExtraFlavors();
       renderExtraFlavors();
