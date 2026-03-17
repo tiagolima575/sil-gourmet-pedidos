@@ -178,22 +178,12 @@ body{
   border-color:rgba(95,113,65,.3);
   opacity:.5;
 }
-.adminRevealDot.saveMode{
-  width:auto;
-  min-width:92px;
-  height:36px;
-  padding:0 16px;
-  border-radius:999px;
-  background:linear-gradient(180deg, #6f8551, #5b6f40);
-  border:1px solid rgba(95,113,65,.38);
-  color:#f8f4ea;
-  opacity:1;
-  font:700 14px system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-  box-shadow:0 6px 16px rgba(54,66,37,.18), inset 0 1px 0 rgba(255,255,255,.22);
-}
-.adminRevealDot.saveMode:hover,
-.adminRevealDot.saveMode:focus{
-  opacity:1;
+.adminPanelFooter{
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  margin-top:16px;
 }
 
 .adminHint{
@@ -1325,7 +1315,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 </div>
 <div id="regularExtraFlavorMount"></div>
 </div>
-<div id="specialFlavorSection" class="specialFlavorSection" style="display:none"><div class="sectionTitle">POTINHOS ESPECIAIS</div><div class="hint specialFlavorSub">Itens com preço próprio. A soma entra no mesmo total do pedido.</div><div class="flavorsGrid" id="specialFlavorGrid" style="margin-top:10px"></div><div class="hint" id="specialFlavorHint" style="margin-top:8px">Potinhos especiais selecionados: 0</div></div><div class="hint" id="multiTotalHint" style="margin-top:8px">Tradicionais: 0 | Especiais: 0 | Total: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="regularFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addRegularFlavorBtn" type="button">Adicionar tradicional</button><button class="ghostBtn" id="removeRegularFlavorBtn" type="button">Remover último tradicional</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro dos tradicionais, seguindo o mesmo preço dos combos normais.</div><div class="sep" style="margin:14px 0"></div><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar potinho especial</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último especial</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro de Potinhos Especiais, com foto, nome, descrição, preço e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo. Para fechar, toque em Salvar.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div></div>
+<div id="specialFlavorSection" class="specialFlavorSection" style="display:none"><div class="sectionTitle">POTINHOS ESPECIAIS</div><div class="hint specialFlavorSub">Itens com preço próprio. A soma entra no mesmo total do pedido.</div><div class="flavorsGrid" id="specialFlavorGrid" style="margin-top:10px"></div><div class="hint" id="specialFlavorHint" style="margin-top:8px">Potinhos especiais selecionados: 0</div></div><div class="hint" id="multiTotalHint" style="margin-top:8px">Tradicionais: 0 | Especiais: 0 | Total: 0 potinhos</div><div class="adminHiddenPanel" id="extraFlavorPanel"><div class="headerTools" id="regularFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addRegularFlavorBtn" type="button">Adicionar tradicional</button><button class="ghostBtn" id="removeRegularFlavorBtn" type="button">Remover último tradicional</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro dos tradicionais, seguindo o mesmo preço dos combos normais.</div><div class="sep" style="margin:14px 0"></div><div class="headerTools" id="extraFlavorActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraFlavorBtn" type="button">Adicionar potinho especial</button><button class="ghostBtn" id="removeExtraFlavorBtn" type="button">Remover último especial</button></div><div class="hint adminHint">Esse botão cria um novo espaço dentro de Potinhos Especiais, com foto, nome, descrição, preço e quantidade.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar preços</label><div class="grid two" id="priceEditorGrid" style="gap:10px"><div><label>1 unidade</label><input id="price_single_input" inputmode="decimal" placeholder="Ex.: 15,99" type="text" value="15,99"/></div><div><label>Combo 2 unidades</label><input id="price_combo2_input" inputmode="decimal" placeholder="Ex.: 29,90" type="text" value="29,90"/></div><div><label>Combo 3 unidades</label><input id="price_combo3_input" inputmode="decimal" placeholder="Ex.: 41,70" type="text" value="41,70"/></div><div><label>Combo 4 unidades</label><input id="price_combo4_input" inputmode="decimal" placeholder="Ex.: 53,90" type="text" value="53,90"/></div><div><label>Combo 5 unidades</label><input id="price_combo5_input" inputmode="decimal" placeholder="Ex.: 64,95" type="text" value="64,95"/></div></div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Editar texto “Sai por”</label><div class="grid two" id="perUnitEditorGrid" style="gap:10px"><div><label>Combo 2 unidades</label><input id="per_unit_combo2_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 3 unidades</label><input id="per_unit_combo3_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 4 unidades</label><input id="per_unit_combo4_input" placeholder="Deixe em branco para automático" type="text" value=""/></div><div><label>Combo 5 unidades</label><input id="per_unit_combo5_input" placeholder="Deixe em branco para automático" type="text" value=""/></div></div><div class="hint adminHint">Se deixar em branco, o sistema calcula sozinho. Se escrever algo aqui, ele usa exatamente o texto que você colocou.</div><div class="headerTools" id="comboActions" style="margin-top:12px"><button class="uploadBtn" id="addExtraComboBtn" type="button">Adicionar combo</button><button class="ghostBtn" id="removeExtraComboBtn" type="button">Remover último combo</button></div><div class="grid" id="extraComboEditorGrid" style="gap:10px"></div><div class="hint adminHint">Aqui você cria combos extras, como 6 unidades, 7 unidades ou qualquer outro valor. Essa área só aparece quando o botão secreto estiver ativo. Para gravar no arquivo, use o botão Salvar HTML atualizado.</div><div class="hint adminHint">Esses preços só ficam editáveis quando o botão secreto estiver ativado.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Tema</label><div class="row adminThemeRow" id="themeEditorRow"><button class="ghostBtn themeToggleBtn" data-theme-choice="classic" type="button">Tema claro original</button><button class="ghostBtn themeToggleBtn" data-theme-choice="dark" type="button">Tema marrom/oliva</button><button class="ghostBtn themeToggleBtn" data-theme-choice="premium" type="button">Tema café premium</button></div><div class="hint adminHint">A troca de tema também fica escondida e só aparece quando o botão secreto estiver ativo.</div><div class="sep" style="margin:14px 0"></div><label class="fieldLabel">Visualização dos preços</label><div class="row adminPriceViewRow" id="priceViewEditorRow"><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="1" type="button">Modelo 1 — lista simples</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="2" type="button">Modelo 2 — faixas</button><button class="ghostBtn priceViewToggleBtn" data-price-view-choice="3" type="button">Modelo 3 — cards</button></div><div class="hint adminHint">Aqui você escolhe como a parte de preços vai aparecer. O modelo 3 é esse dos cards.</div><div class="sep" style="margin:14px 0"></div><div class="adminPanelFooter"><button class="ghostBtn" id="closeExtraFlavorPanelBtn" type="button">Fechar painel</button><button class="uploadBtn" id="saveExtraFlavorChangesBtn" type="button">Salvar HTML atualizado</button></div><div class="hint adminHint">O botão secreto só abre o painel. Para gravar tudo no arquivo HTML, use o botão “Salvar HTML atualizado”.</div></div>
 </div>
 </div><div class="sep"></div>
 <div class="row">
@@ -1406,6 +1396,42 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
 <div class="imgModalDesc" id="imgModalDesc"></div>
 </div>
 </div>
+<script id="embeddedAppState" type="application/json">{
+  "lastSavedAt": "2026-03-17T00:00:00.000Z",
+  "flavorState": {
+    "Morango Clássico": {"name": "Morango Clássico", "desc": "geleia de morango"},
+    "Maracujá Tropical": {"name": "Maracujá Tropical", "desc": "geleia de maracujá"},
+    "Uva Intensa": {"name": "Uva Intensa", "desc": "geleia de uva"},
+    "Abacaxi Dourado": {"name": "Abacaxi Dourado", "desc": "geleia de abacaxi"}
+  },
+  "regularExtraFlavors": [
+    {"key": "regular_amora", "name": "Amora", "desc": "geleia de amora", "img": ""},
+    {"key": "regular_manga", "name": "Manga", "desc": "geleia de manga", "img": ""}
+  ],
+  "extraFlavors": [
+    {"key": "special_cupuacu", "name": "Cupuaçu", "desc": "geleia de cupuaçu", "img": "", "price": "15,99"},
+    {"key": "special_kiwi_amarelo", "name": "Kiwi Amarelo", "desc": "geleia de kiwi amarelo", "img": "", "price": "15,99"},
+    {"key": "special_kiwi_verde", "name": "Kiwi Verde", "desc": "geleia de kiwi verde", "img": "", "price": "15,99"},
+    {"key": "special_pitaia", "name": "Pitaia", "desc": "geleia de pitaia", "img": "", "price": "15,99"}
+  ],
+  "priceState": {
+    "single": "15,99",
+    "combo2": "29,90",
+    "combo3": "41,70",
+    "combo4": "53,90",
+    "combo5": "64,95"
+  },
+  "perUnitState": {
+    "combo2": "",
+    "combo3": "",
+    "combo4": "",
+    "combo5": ""
+  },
+  "extraCombos": [],
+  "theme": "premium",
+  "priceView": "3",
+  "thumbs": {}
+}</script>
 <script>
     const WHATSAPP_NUMBER = "5569993631141";
     const $ = (id) => document.getElementById(id);
@@ -1461,6 +1487,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     const extraComboStorageKey = "sil_gourmet_extra_combos_v2";
     const themeStorageKey = "sil_gourmet_theme_v2";
     const priceViewStorageKey = "sil_gourmet_price_view_v1";
+    const embeddedVersionStorageKey = "sil_gourmet_embedded_version_v1";
     const defaultPrices = {
       single: "15,99",
       combo2: "29,90",
@@ -1641,6 +1668,135 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
       };
     }
 
+
+    function readEmbeddedAppState(){
+      try{
+        const el = document.getElementById('embeddedAppState');
+        if(!el) return {};
+        const parsed = JSON.parse(el.textContent || '{}');
+        return parsed && typeof parsed === 'object' ? parsed : {};
+      }catch(e){
+        return {};
+      }
+    }
+
+    const embeddedAppState = readEmbeddedAppState();
+
+    function sanitizeEmbeddedFlavorState(raw){
+      const base = defaultFlavorState();
+      if(!raw || typeof raw !== 'object') return base;
+      Object.keys(base).forEach(key=>{
+        const item = raw[key];
+        if(item && typeof item === 'object'){
+          if(typeof item.name === 'string' && item.name.trim()) base[key].name = item.name.trim();
+          if(typeof item.desc === 'string' && item.desc.trim()) base[key].desc = item.desc.trim();
+        }
+      });
+      return base;
+    }
+
+    function sanitizeEmbeddedRegularExtraFlavors(raw){
+      const source = Array.isArray(raw) ? raw : DEFAULT_REGULAR_EXTRA_FLAVORS;
+      return source.map((item, idx) => ({
+        key: String(item && item.key ? item.key : `regular_extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
+        name: String(item && item.name ? item.name : `Tradicional ${idx+1}`),
+        desc: String(item && item.desc ? item.desc : 'sabor tradicional'),
+        img: String(item && item.img ? item.img : '')
+      }));
+    }
+
+    function sanitizeEmbeddedExtraFlavors(raw){
+      const source = Array.isArray(raw) ? raw : DEFAULT_SPECIAL_FLAVORS;
+      return source.map((item, idx) => ({
+        key: String(item && item.key ? item.key : `extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
+        name: String(item && item.name ? item.name : `Especial ${idx+1}`),
+        desc: String(item && item.desc ? item.desc : 'produto personalizado'),
+        img: String(item && item.img ? item.img : ''),
+        price: normalizePriceInput(String(item && item.price ? item.price : defaultPrices.single)) || defaultPrices.single
+      }));
+    }
+
+    function sanitizeEmbeddedPriceState(raw){
+      const base = { ...defaultPrices };
+      if(!raw || typeof raw !== 'object') return base;
+      Object.keys(base).forEach(key=>{
+        if(typeof raw[key] === 'string' && raw[key].trim()) base[key] = normalizePriceInput(raw[key]) || base[key];
+      });
+      return base;
+    }
+
+    function sanitizeEmbeddedPerUnitState(raw){
+      const base = { combo2: '', combo3: '', combo4: '', combo5: '' };
+      if(!raw || typeof raw !== 'object') return base;
+      Object.keys(base).forEach(key=>{
+        if(typeof raw[key] === 'string') base[key] = raw[key].trim();
+      });
+      return base;
+    }
+
+    function sanitizeEmbeddedExtraCombos(raw){
+      if(!Array.isArray(raw)) return [];
+      return raw.map((item, idx) => ({
+        key: String(item && item.key ? item.key : `combo_extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
+        qty: normalizeComboQty(item && item.qty, idx),
+        price: normalizePriceInput(item && item.price ? item.price : '') || '0,00',
+        perUnit: String(item && item.perUnit ? item.perUnit : '').trim()
+      }));
+    }
+
+    function sanitizeEmbeddedThumbs(raw){
+      if(!raw || typeof raw !== 'object') return {};
+      const out = {};
+      Object.keys(raw).forEach(key=>{
+        const value = String(raw[key] || '');
+        if(value) out[key] = value;
+      });
+      return out;
+    }
+
+    function getEmbeddedTheme(){
+      return ['classic','dark','premium'].includes(embeddedAppState.theme) ? embeddedAppState.theme : 'premium';
+    }
+
+    function getEmbeddedPriceView(){
+      const view = String(embeddedAppState.priceView || '3');
+      return ['1','2','3'].includes(view) ? view : '3';
+    }
+
+    const embeddedThumbs = sanitizeEmbeddedThumbs(embeddedAppState.thumbs);
+
+    function hydrateStateFromEmbeddedIfNeeded(){
+      const version = String(embeddedAppState.lastSavedAt || '').trim();
+      if(!version) return;
+      try{
+        const current = localStorage.getItem(embeddedVersionStorageKey) || '';
+        if(current === version) return;
+        localStorage.setItem(flavorStorageKey, JSON.stringify(sanitizeEmbeddedFlavorState(embeddedAppState.flavorState)));
+        localStorage.setItem(regularExtraFlavorStorageKey, JSON.stringify(sanitizeEmbeddedRegularExtraFlavors(embeddedAppState.regularExtraFlavors).map(item=>({
+          key: item.key,
+          name: item.name,
+          desc: item.desc
+        }))));
+        localStorage.setItem(extraFlavorStorageKey, JSON.stringify(sanitizeEmbeddedExtraFlavors(embeddedAppState.extraFlavors).map(item=>({
+          key: item.key,
+          name: item.name,
+          desc: item.desc,
+          price: item.price
+        }))));
+        localStorage.setItem(priceStorageKey, JSON.stringify(sanitizeEmbeddedPriceState(embeddedAppState.priceState)));
+        localStorage.setItem(perUnitStorageKey, JSON.stringify(sanitizeEmbeddedPerUnitState(embeddedAppState.perUnitState)));
+        localStorage.setItem(extraComboStorageKey, JSON.stringify(sanitizeEmbeddedExtraCombos(embeddedAppState.extraCombos)));
+        localStorage.setItem(themeStorageKey, getEmbeddedTheme());
+        localStorage.setItem(priceViewStorageKey, getEmbeddedPriceView());
+        Object.entries(embeddedThumbs).forEach(([key, value])=>{
+          if(value) localStorage.setItem(safeKey(key), value);
+        });
+        localStorage.setItem(embeddedVersionStorageKey, version);
+      }catch(e){}
+    }
+
+    hydrateStateFromEmbeddedIfNeeded();
+
     function getFlavorState(){
       const base = defaultFlavorState();
       try{
@@ -1660,7 +1816,8 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function getExtraFlavors(){
-      const defaults = DEFAULT_SPECIAL_FLAVORS.map((item, idx) => ({
+      const embeddedDefaultsSource = Array.isArray(embeddedAppState.extraFlavors) ? embeddedAppState.extraFlavors : DEFAULT_SPECIAL_FLAVORS;
+      const defaults = embeddedDefaultsSource.map((item, idx) => ({
         key: String(item.key || `extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
         name: String(item.name || `Novo produto ${idx+1}`),
         desc: String(item.desc || "produto personalizado"),
@@ -1689,7 +1846,8 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function getRegularExtraFlavors(){
-      const defaults = DEFAULT_REGULAR_EXTRA_FLAVORS.map((item, idx) => ({
+      const embeddedDefaultsSource = Array.isArray(embeddedAppState.regularExtraFlavors) ? embeddedAppState.regularExtraFlavors : DEFAULT_REGULAR_EXTRA_FLAVORS;
+      const defaults = embeddedDefaultsSource.map((item, idx) => ({
         key: String(item.key || `regular_extra_${idx+1}`).replace(/[^a-zA-Z0-9_-]/g, '_'),
         name: String(item.name || `Tradicional ${idx+1}`),
         desc: String(item.desc || "sabor tradicional"),
@@ -1945,7 +2103,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function getPriceState(){
-      const base = { ...defaultPrices };
+      const base = sanitizeEmbeddedPriceState(embeddedAppState.priceState);
       try{
         const raw = localStorage.getItem(priceStorageKey);
         if(!raw) return base;
@@ -1968,7 +2126,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     }
 
     function getPerUnitState(){
-      const base = { combo2: '', combo3: '', combo4: '', combo5: '' };
+      const base = sanitizeEmbeddedPerUnitState(embeddedAppState.perUnitState);
       try{
         const raw = localStorage.getItem(perUnitStorageKey);
         if(!raw) return base;
@@ -1993,7 +2151,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     function getExtraCombos(){
       try{
         const raw = localStorage.getItem(extraComboStorageKey);
-        if(!raw) return [];
+        if(!raw) return sanitizeEmbeddedExtraCombos(embeddedAppState.extraCombos);
         const list = JSON.parse(raw);
         if(!Array.isArray(list)) return [];
         return list.map((item, idx) => ({
@@ -2003,7 +2161,7 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
           perUnit: String(item.perUnit || '').trim()
         }));
       }catch(e){
-        return [];
+        return sanitizeEmbeddedExtraCombos(embeddedAppState.extraCombos);
       }
     }
 
@@ -2350,9 +2508,9 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     function getThemeState(){
       try{
         const saved = localStorage.getItem(themeStorageKey);
-        return ['classic','dark','premium'].includes(saved) ? saved : 'premium';
+        return ['classic','dark','premium'].includes(saved) ? saved : getEmbeddedTheme();
       }catch(e){
-        return 'premium';
+        return getEmbeddedTheme();
       }
     }
 
@@ -2387,9 +2545,9 @@ body[data-theme="premium"] .summaryHint strong{color:#fff5df}
     function getPriceViewState(){
       try{
         const saved = localStorage.getItem(priceViewStorageKey);
-        return ['1','2','3'].includes(saved) ? saved : '3';
+        return ['1','2','3'].includes(saved) ? saved : getEmbeddedPriceView();
       }catch(e){
-        return '3';
+        return getEmbeddedPriceView();
       }
     }
 
@@ -2762,6 +2920,7 @@ especial(${specialQty})`;
         const direct = localStorage.getItem(safeKey(flavor));
         if(direct) return direct;
       }catch(e){}
+      if(embeddedThumbs[flavor]) return embeddedThumbs[flavor];
       if(isExtraFlavor(flavor)){
         const extra = getExtraFlavor(flavor);
         if(extra && extra.img) return extra.img;
@@ -2980,7 +3139,120 @@ especial(${specialQty})`;
       return typed.trim().toLowerCase() === adminPassword;
     }
 
-    function persistAllAdminChanges(){
+    async function collectThumbsForExport(){
+      const keys = Array.from(new Set(BASE_FLAVORS.concat(regularExtraFlavors.map(item => item.key), extraFlavors.map(item => item.key))));
+      const result = {};
+      for(const key of keys){
+        try{
+          const value = await getSavedThumbAsync(key);
+          if(value) result[key] = value;
+        }catch(e){}
+      }
+      return result;
+    }
+
+    function updateEmbeddedStateTag(state){
+      const el = document.getElementById('embeddedAppState');
+      if(!el) return;
+      const safeJson = JSON.stringify(state, null, 2).replace(/<\//g, '<\/');
+      el.textContent = safeJson;
+    }
+
+    function slugifyFileName(value){
+      return String(value || 'pedido-sil-gourmet')
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-zA-Z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .toLowerCase() || 'pedido-sil-gourmet';
+    }
+
+    async function buildEmbeddedStateForExport(){
+      const timestamp = new Date().toISOString();
+      const thumbs = await collectThumbsForExport();
+      return {
+        lastSavedAt: timestamp,
+        flavorState: sanitizeEmbeddedFlavorState(flavorState),
+        regularExtraFlavors: regularExtraFlavors.map(item => ({
+          key: String(item.key || ''),
+          name: String(item.name || ''),
+          desc: String(item.desc || ''),
+          img: String(item.img || '')
+        })),
+        extraFlavors: extraFlavors.map(item => ({
+          key: String(item.key || ''),
+          name: String(item.name || ''),
+          desc: String(item.desc || ''),
+          img: String(item.img || ''),
+          price: normalizePriceInput(String(item.price || defaultPrices.single)) || defaultPrices.single
+        })),
+        priceState: sanitizeEmbeddedPriceState(priceState),
+        perUnitState: sanitizeEmbeddedPerUnitState(perUnitState),
+        extraCombos: sanitizeEmbeddedExtraCombos(extraCombos),
+        theme: document.body.getAttribute('data-theme') || 'premium',
+        priceView: document.body.getAttribute('data-price-view') || '3',
+        thumbs
+      };
+    }
+
+    function buildSanitizedHtmlForExport(stateJson){
+      const clone = document.documentElement.cloneNode(true);
+      const cloneBody = clone.querySelector('body');
+      if(cloneBody){
+        cloneBody.classList.remove('adminUnlocked');
+      }
+
+      const clonePanel = clone.querySelector('#extraFlavorPanel');
+      if(clonePanel){
+        clonePanel.classList.remove('show');
+      }
+
+      const cloneToggle = clone.querySelector('#toggleExtraFlavorPanel');
+      if(cloneToggle){
+        cloneToggle.classList.remove('active');
+        cloneToggle.textContent = '';
+        cloneToggle.setAttribute('aria-label', 'Mostrar opção oculta de produtos');
+        cloneToggle.setAttribute('title', 'Abrir painel secreto');
+      }
+
+      clone.querySelectorAll('.flavorEditInput, .flavorEditDesc, [data-edit-price], #priceEditorGrid input, #perUnitEditorGrid input, #extraComboEditorGrid input').forEach(input=>{
+        input.setAttribute('readonly', 'readonly');
+        input.setAttribute('disabled', 'disabled');
+        input.setAttribute('tabindex', '-1');
+      });
+
+      ['addRegularFlavorBtn','removeRegularFlavorBtn','addExtraFlavorBtn','removeExtraFlavorBtn','addExtraComboBtn','removeExtraComboBtn'].forEach(id=>{
+        const btn = clone.querySelector(`#${id}`);
+        if(btn) btn.setAttribute('disabled', 'disabled');
+      });
+
+      const embedded = clone.querySelector('#embeddedAppState');
+      if(embedded){
+        embedded.textContent = stateJson;
+      }
+
+      return '<!doctype html>\n' + clone.outerHTML;
+    }
+
+    async function exportCurrentHtmlFile(){
+      const state = await buildEmbeddedStateForExport();
+      updateEmbeddedStateTag(state);
+      try{ localStorage.setItem(embeddedVersionStorageKey, String(state.lastSavedAt || '')); }catch(e){}
+      const stateJson = JSON.stringify(state, null, 2).replace(/<\//g, '<\/');
+      const updatedHtml = buildSanitizedHtmlForExport(stateJson);
+      const blob = new Blob([updatedHtml], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${slugifyFileName(document.title)}-atualizado.html`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(()=> URL.revokeObjectURL(url), 1500);
+      return true;
+    }
+
+    async function persistAllAdminChanges(exportHtml = false){
       saveFlavorState();
       saveRegularExtraFlavors();
       saveExtraFlavors();
@@ -2989,24 +3261,18 @@ especial(${specialQty})`;
       saveExtraCombos();
       saveThemeState(document.body.getAttribute('data-theme') || 'premium');
       savePriceViewState(document.body.getAttribute('data-price-view') || '3');
+      if(exportHtml){
+        await exportCurrentHtmlFile();
+      }
     }
 
     function updateExtraFlavorToggleAppearance(open){
       const toggle = $('toggleExtraFlavorPanel');
       if(!toggle) return;
-      if(open){
-        toggle.classList.add('saveMode');
-        toggle.classList.add('active');
-        toggle.textContent = 'Salvar';
-        toggle.setAttribute('aria-label', 'Salvar alterações e fechar painel secreto');
-        toggle.title = 'Salvar alterações';
-      }else{
-        toggle.classList.remove('saveMode');
-        toggle.classList.remove('active');
-        toggle.textContent = '';
-        toggle.setAttribute('aria-label', 'Mostrar opção oculta de produtos');
-        toggle.title = '';
-      }
+      toggle.classList.toggle('active', !!open);
+      toggle.textContent = '';
+      toggle.setAttribute('aria-label', open ? 'Fechar painel secreto' : 'Mostrar opção oculta de produtos');
+      toggle.title = open ? 'Fechar painel secreto' : 'Abrir painel secreto';
     }
 
     function setExtraFlavorPanel(open){
@@ -3025,7 +3291,6 @@ especial(${specialQty})`;
         const panel = $('extraFlavorPanel');
         const isOpen = !!(panel && panel.classList.contains('show'));
         if(isOpen){
-          persistAllAdminChanges();
           setExtraFlavorPanel(false);
           return;
         }
@@ -3037,6 +3302,34 @@ especial(${specialQty})`;
         }
       });
       setExtraFlavorPanel(getExtraFlavorPanelState());
+    }
+
+    function setupExtraFlavorPanelActions(){
+      const saveBtn = $('saveExtraFlavorChangesBtn');
+      const closeBtn = $('closeExtraFlavorPanelBtn');
+
+      if(saveBtn && saveBtn.dataset.boundSaveHtml !== '1'){
+        saveBtn.dataset.boundSaveHtml = '1';
+        saveBtn.addEventListener('click', async ()=>{
+          try{
+            saveBtn.disabled = true;
+            await persistAllAdminChanges(true);
+            showOk('Alterações salvas. O HTML atualizado foi baixado com os novos potinhos.');
+            setExtraFlavorPanel(false);
+          }catch(e){
+            showError('As alterações ficaram salvas no navegador, mas falhou ao gerar o HTML atualizado.');
+          }finally{
+            saveBtn.disabled = false;
+          }
+        });
+      }
+
+      if(closeBtn && closeBtn.dataset.boundClosePanel !== '1'){
+        closeBtn.dataset.boundClosePanel = '1';
+        closeBtn.addEventListener('click', ()=>{
+          setExtraFlavorPanel(false);
+        });
+      }
     }
 
     function createRegularExtraFlavorKey(){
@@ -3464,6 +3757,7 @@ especial(${specialQty})`;
       setupThemeEditor();
       setupPriceViewEditor();
       setupExtraFlavorPanelToggle();
+      setupExtraFlavorPanelActions();
       renderRegularExtraFlavors();
       renderExtraFlavors();
       setThumbs();
