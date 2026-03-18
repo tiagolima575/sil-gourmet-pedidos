@@ -12,7 +12,7 @@ Esses entram na regra normal do catálogo e nos combos padrões.
 - Abacaxi Dourado → `sabor-abacaxi.jpg`
 - Amora → `sabor-amora.jpg`
 - Manga → `sabor-manga.jpg`
-
+- Cupuaçu → `sabor-cupuacu.jpg`
 **Regra dos tradicionais:**
 - ficam no bloco normal;
 - usam a lógica padrão de quantidade;
@@ -23,7 +23,6 @@ Esses entram na regra normal do catálogo e nos combos padrões.
 Esses ficam separados para não bagunçar o catálogo.
 
 **Sabores especiais fixos:**
-- Cupuaçu → `sabor-cupuacu.jpg`
 - Kiwi Verde → `sabor-kiwi-verde.jpg`
 - Pitaia → `sabor-pitaia.jpg`
 - Ameixa Especial → `sabor-ameixa.jpg`
