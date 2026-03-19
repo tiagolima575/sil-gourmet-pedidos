@@ -24,7 +24,7 @@ Esses ficam separados para não bagunçar o catálogo.
 
 **Sabores especiais fixos:**
 - Kiwi Verde → `sabor-kiwi-verde.jpg`
-- Pitaia → `sabor-pitaia.jpg`
+- Pytaia → `sabor-pytaia.jpg`
 - Ameixa Especial → `sabor-ameixa.jpg`
 
 **Regra dos especiais:**
